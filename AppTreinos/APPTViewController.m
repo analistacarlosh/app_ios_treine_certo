@@ -102,6 +102,10 @@
                     c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
                     [self presentViewController:c animated:YES completion:nil];*/
                     
+                    [self performSegueWithIdentifier:@"listagemTreino" sender:sender];
+                    
+                    //[self performSegueWithIdentifier:@"listagemTreino" sender:sender];
+                    
                 } else {
                     NSString *error_msg = (NSString *) [jsonData objectForKey:@"error"];
                     [self alertStatus:error_msg :@"Falha no login!"];
@@ -109,13 +113,13 @@
                 
             } else {
                 if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Falha na conexão" :@"Falha no login!"];
+                [self alertStatus:@"Falha na conexão" :@"Falha no login 2 !"];
             }
         }
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Login Failed." :@"Login Failed!"];
+        [self alertStatus:@"Login Failed 3." :@"Login Failed!"];
     }
 }
 
