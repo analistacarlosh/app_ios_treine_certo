@@ -10,6 +10,8 @@
 #import "SBJson.h"
 #import "SCSQLite.h"
 #import "DetalheTreinoViewController.h"
+#import "Usuario.h"
+#import "Treino.h"
 
 @interface APPTViewController ()
 
@@ -139,6 +141,30 @@
     } else {
         NSLog(@"Erro ao salvar");
     }
+}
+
+- (IBAction)viewUsers:(id)sender {
+    Usuario *users = [[Usuario alloc] init];
+    [users showUsers];
+    NSLog(@"showUsers");
+}
+
+- (IBAction)viewTraining:(id)sender {
+    Treino *treino = [[Treino alloc] init];
+    [treino showTraining];
+    NSLog(@"showTraining");
+}
+
+- (IBAction)deleteUsers:(id)sender {
+    Usuario *users = [[Usuario alloc] init];
+    [users deleteUser];
+    NSLog(@"deleteUser");
+}
+
+- (IBAction)deleteTraining:(id)sender {
+    Treino *treino = [[Treino alloc] init];
+    [treino deleteTraining];
+    NSLog(@"deleteTraining");
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {

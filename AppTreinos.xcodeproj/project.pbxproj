@@ -13,6 +13,8 @@
 		5E09ED94192195D6003089BA /* training.db in Resources */ = {isa = PBXBuildFile; fileRef = 5E09ED93192195D6003089BA /* training.db */; };
 		5E1F90201921CBDB006770C2 /* APPTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F901F1921CBDB006770C2 /* APPTTableViewController.m */; };
 		5E1F902319230BF4006770C2 /* DetalheTreinoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F902219230BF4006770C2 /* DetalheTreinoViewController.m */; };
+		5E20880D19292C0D0004ABA1 /* Treino.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20880C19292C0D0004ABA1 /* Treino.m */; };
+		5E20881019292C1F0004ABA1 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20880F19292C1F0004ABA1 /* Usuario.m */; };
 		5ED0AD64191FABCB0026DFF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED0AD63191FABCB0026DFF9 /* Foundation.framework */; };
 		5ED0AD66191FABCB0026DFF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED0AD65191FABCB0026DFF9 /* CoreGraphics.framework */; };
 		5ED0AD68191FABCB0026DFF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED0AD67191FABCB0026DFF9 /* UIKit.framework */; };
@@ -61,6 +63,10 @@
 		5E1F901F1921CBDB006770C2 /* APPTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPTTableViewController.m; sourceTree = "<group>"; };
 		5E1F902119230BF4006770C2 /* DetalheTreinoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalheTreinoViewController.h; sourceTree = "<group>"; };
 		5E1F902219230BF4006770C2 /* DetalheTreinoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalheTreinoViewController.m; sourceTree = "<group>"; };
+		5E20880B19292C0D0004ABA1 /* Treino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treino.h; sourceTree = "<group>"; };
+		5E20880C19292C0D0004ABA1 /* Treino.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Treino.m; sourceTree = "<group>"; };
+		5E20880E19292C1F0004ABA1 /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Usuario.h; sourceTree = "<group>"; };
+		5E20880F19292C1F0004ABA1 /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
 		5ED0AD60191FABCB0026DFF9 /* AppTreinos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTreinos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED0AD63191FABCB0026DFF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5ED0AD65191FABCB0026DFF9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +191,10 @@
 				5E1F902219230BF4006770C2 /* DetalheTreinoViewController.m */,
 				5E1F901E1921CBDB006770C2 /* APPTTableViewController.h */,
 				5E1F901F1921CBDB006770C2 /* APPTTableViewController.m */,
+				5E20880B19292C0D0004ABA1 /* Treino.h */,
+				5E20880C19292C0D0004ABA1 /* Treino.m */,
+				5E20880E19292C1F0004ABA1 /* Usuario.h */,
+				5E20880F19292C1F0004ABA1 /* Usuario.m */,
 				5ED0AD78191FABCB0026DFF9 /* APPTViewController.h */,
 				5ED0AD79191FABCB0026DFF9 /* APPTViewController.m */,
 				5ED0AD7B191FABCB0026DFF9 /* Images.xcassets */,
@@ -355,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E20881019292C1F0004ABA1 /* Usuario.m in Sources */,
 				5ED0AD7A191FABCB0026DFF9 /* APPTViewController.m in Sources */,
 				5ED0ADBD191FC04D0026DFF9 /* SBJsonWriter.m in Sources */,
 				5ED0AD70191FABCB0026DFF9 /* main.m in Sources */,
@@ -363,6 +374,7 @@
 				5ED0ADB8191FC04D0026DFF9 /* SBJsonStreamWriter.m in Sources */,
 				5ED0ADB4191FC04D0026DFF9 /* SBJsonStreamParser.m in Sources */,
 				5ED0ADB3191FC04D0026DFF9 /* SBJsonParser.m in Sources */,
+				5E20880D19292C0D0004ABA1 /* Treino.m in Sources */,
 				5ED0ADB5191FC04D0026DFF9 /* SBJsonStreamParserAccumulator.m in Sources */,
 				5ED0ADB7191FC04D0026DFF9 /* SBJsonStreamParserState.m in Sources */,
 				5ED0ADB9191FC04D0026DFF9 /* SBJsonStreamWriterAccumulator.m in Sources */,

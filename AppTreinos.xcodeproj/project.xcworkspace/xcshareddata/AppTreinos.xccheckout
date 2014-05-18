@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>50573445-8521-41D0-828A-A3D1C013FC77</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AppTreinos</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BA0323DD-992C-4CE2-B395-7BDC6B64FF28</key>
+		<string>https://bitbucket.org/analistacarlosh/app-treinos-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AppTreinos.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BA0323DD-992C-4CE2-B395-7BDC6B64FF28</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/analistacarlosh/app-treinos-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BA0323DD-992C-4CE2-B395-7BDC6B64FF28</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BA0323DD-992C-4CE2-B395-7BDC6B64FF28</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AppTreinos</string>
+		</dict>
+	</array>
+</dict>
+</plist>
