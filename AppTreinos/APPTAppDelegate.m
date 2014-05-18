@@ -7,11 +7,13 @@
 //
 
 #import "APPTAppDelegate.h"
+#import "SCSQLite.h"
 
 @implementation APPTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [SCSQLite initWithDatabase:@"training.db"];
     // Override point for customization after application launch.
     return YES;
 }

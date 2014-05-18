@@ -8,6 +8,8 @@
 
 #import "APPTViewController.h"
 #import "SBJson.h"
+#import "SCSQLite.h"
+#import "DetalheTreinoViewController.h"
 
 @interface APPTViewController ()
 
@@ -127,9 +129,23 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)cadTreino:(id)sender {
+    
+    BOOL isSave = [SCSQLite executeSQL:@"INSERT INTO  tbl_treinos (data_do_treino, hora_inicial_do_treino, hora_final_do_treino, descricao_do_treino, fk_tipo_de_treino, fk_id_treino, dia_da_semana, nome, descricao, fk_id_cliente, treino_status, icone_treino) VALUES ('2014-05-13', '10:10', '10:10', 'LONGO', 1, 1, 'SEGUNDA', 'CARLOS', 'LONGO DE 15 KM PARA PACE DE 4:00', 1, '0', 'teste.png') "];
+    
+    if(isSave){
+        [self dismissViewControllerAnimated:YES completion:nil];
+        NSLog(@"Sucesso ao salvar");
+    } else {
+        NSLog(@"Erro ao salvar");
+    }
+}
+
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
+
+
 
 @end
