@@ -22,4 +22,25 @@
     NSLog(@"DELETE Training ==> %@", self.training);
 }
 
+-(BOOL)insertTraining:(NSDate *)data_do_treino
+    hora_inicial_do_treino:(NSString *)hora_inicial_do_treino
+    fk_tipo_de_treino:(NSString *)fk_tipo_de_treino
+    fk_id_treino:(NSString *)fk_id_treino
+    dia_da_semana:(NSString *)dia_da_semana
+    nome:(NSString *)nome_tipo_exercicio
+    descricao:(NSString *)descricao_exercicio
+    fk_id_cliente:(NSString *)fk_id_cliente
+    treino_status:(NSString *)exercicio_status {
+    
+    int fktipodetreino = [fk_tipo_de_treino intValue];
+    int fkidtreino     = [fk_id_treino intValue];
+    int fkidcliente    = [fk_id_cliente intValue];
+    
+    BOOL isSave = [SCSQLite executeSQL:@"INSERT INTO  tbl_treinos (data_do_treino, hora_inicial_do_treino, fk_tipo_de_treino, fk_id_treino, dia_da_semana, nome, descricao, fk_id_cliente, treino_status) VALUES ('%@', '%@', '%d', '%d', '%@', '%@', '%@', '%d', '%@')",
+                   data_do_treino, hora_inicial_do_treino, fktipodetreino, fkidtreino, dia_da_semana, nome_tipo_exercicio, descricao_exercicio,
+                   fkidcliente, exercicio_status];
+    
+    return isSave;
+}
+
 @end
