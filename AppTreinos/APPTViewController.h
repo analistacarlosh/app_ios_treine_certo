@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtSenha;
 - (IBAction)btnEntrar:(id)sender;
 - (IBAction)backgroundTab:(id)sender;
-- (IBAction)cadTreino:(id)sender;
 - (IBAction)viewUsers:(id)sender;
 - (IBAction)viewTraining:(id)sender;
 - (IBAction)deleteUsers:(id)sender;

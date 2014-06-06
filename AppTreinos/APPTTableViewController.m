@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    results = [SCSQLite selectRowSQL:@"SELECT * FROM tbl_treinos"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -42,7 +42,7 @@
     [treinos addObject:@"Tiross"];*/
     
     
-/*    [self setTitle:@"Treinos"];*/
+    [self setTitle:@"Treinos"];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -77,7 +77,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celltreinos" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celltraining" forIndexPath:indexPath];
     
     // Configure the cell...
     

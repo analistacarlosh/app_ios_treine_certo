@@ -144,21 +144,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="celltreinos" textLabel="UDA-C7-8Z8" detailTextLabel="ZCb-JD-CQe" rowHeight="34" style="IBUITableViewCellStyleSubtitle" id="Qtm-PJ-Gb5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="aUM-ir-H4h" detailTextLabel="WqK-Xw-oAe" style="IBUITableViewCellStyleSubtitle" id="5nx-nc-XhJ">
                                 <rect key="frame" x="0.0" y="86" width="320" height="34"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qtm-PJ-Gb5" id="JH0-hR-hQn">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5nx-nc-XhJ" id="aSQ-mR-y2b">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UDA-C7-8Z8">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aUM-ir-H4h">
                                             <rect key="frame" x="15" y="-2" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZCb-JD-CQe">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WqK-Xw-oAe">
                                             <rect key="frame" x="15" y="20" width="43" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -167,9 +167,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="JeB-PI-qFv" kind="push" identifier="detalheTreino" id="cGA-ie-Rxq"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -12,6 +12,7 @@
 #import "DetalheTreinoViewController.h"
 #import "Usuario.h"
 #import "Treino.h"
+#import "APPTTableViewController.h"
 
 @interface APPTViewController ()
 
@@ -71,28 +72,16 @@
             if ([response statusCode] >=200 && [response statusCode] <300) {
                 
                 NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                
-                NSLog(@"Response ==> %@", responseData);
+                // NSLog(@"Response ==> %@", responseData);
                 
                 SBJsonParser *jsonParser = [SBJsonParser new];
                 id jsonData = [jsonParser objectWithString:responseData error:nil];
-                
-                /*if([jsonData isKindOfClass:[NSDictionary class]]) {
-                    NSLog(@"Dictionary");
-                }
-                else if([jsonData isKindOfClass:[NSArray class]]) {
-                    NSLog(@"Array");
-                }*/
                 
                 NSInteger status = [(NSNumber *) [[jsonData objectAtIndex:0] objectForKey:@"status"] integerValue];
                 
                 if(status == 1) {
                     
                     [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
-                    
-                    /*ListaTreinosViewController *c = [[ListaTreinosViewController alloc] init];
-                    c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-                    [self presentViewController:c animated:YES completion:nil];*/
 
                     // Save Data User
                     NSString *login = [[jsonData objectAtIndex:0] objectForKey:@"email"];
@@ -101,14 +90,23 @@
                     NSString *user_name = [[jsonData objectAtIndex:0] objectForKey:@"user_name"];
                     NSString *fk_tipo_de_usuario = [[jsonData objectAtIndex:0] objectForKey:@"fk_tipo_de_usuario"];
                     
+                    // Cadastrando dados do login do usuario
                     Usuario *users = [[Usuario alloc] init];
                     BOOL returnInsertUsers = [users insertUsers:(login) str_senha:(senha) str_pk_id_usuario:(pk_id_usuario) str_user_name:(user_name) str_fk_tipo_de_usuario:(fk_tipo_de_usuario)];
-                    
                     NSLog(@"returnInsertUsers: %d", returnInsertUsers);
                     
-                    // Consultar Treino
+                    // Consulta training no webservice e importa para SQLite
                     BOOL returnImportTraining = [self importTraining:(pk_id_usuario)];
                     NSLog(@"returnTraining: %d", returnImportTraining);
+                    
+                    /*ListaTreinosViewController *c = [[ListaTreinosViewController alloc] init];
+                    c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+                    [self presentViewController:c animated:YES completion:nil];*/
+                    //if(returnImportTraining == 1){
+                        APPTTableViewController *c = [[APPTTableViewController alloc] init];
+                        c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+                        [self presentViewController:c animated:YES completion:nil];
+                    //}
                     
                 } else {
                     NSString *error_msg = (NSString *) [jsonData objectForKey:@"error"];
@@ -155,14 +153,8 @@
         SBJsonParser *jsonParser = [SBJsonParser new];
         id jsonData = [jsonParser objectWithString:responseData error:nil];
         
-       // NSLog(@"Retorno get-diet-by-user: %@", jsonData);
-        
-        // NSDictionary *userinfo=[jsonData];
-        // NSArray *user;
         NSInteger i = 0;
         NSString *skey;
-        
-        NSLog(@" Insert Training ");
         
         for( i = 0; i < [jsonData count]; i++ ) {
             
@@ -172,7 +164,6 @@
                 skey = @"";
             }
             
-            //NSString *login = [[jsonData objectAtIndex:i] objectForKey:@"email"];
             NSDate *data_do_treino = [[jsonData objectAtIndex:i] objectForKey:@"data_do_exercicio"];
             NSString *hora_inicial_do_treino = [[jsonData objectAtIndex:i] objectForKey:@"horario"];
             NSString *fk_tipo_de_treino = [[jsonData objectAtIndex:i] objectForKey:@"fk_tipo_de_exercicio"];
@@ -185,7 +176,7 @@
             
              NSLog(@" Before insert Training ");
             
-            // Salvar Treino
+            // Salvando Treino
             Treino *training = [[Treino alloc] init];
             BOOL returnTraining = [training insertTraining:(data_do_treino) hora_inicial_do_treino:(hora_inicial_do_treino)
                                          fk_tipo_de_treino:(fk_tipo_de_treino) fk_id_treino:(fk_id_treino)
@@ -193,30 +184,17 @@
                                              fk_id_cliente:(fk_id_cliente) treino_status:(exercicio_status)];
 
             NSLog(@"returnTraining: %d", returnTraining);
-            // return returnTraining;
         }
         
         return true;
     } else {
-         NSLog(@"sem conexao com webservice: ");
+         NSLog(@"Sem conexão!");
         return false;
     }
 }
 
 - (IBAction)backgroundTab:(id)sender {
     [self.view endEditing:YES];
-}
-
-- (IBAction)cadTreino:(id)sender {
-    
-    BOOL isSave = [SCSQLite executeSQL:@"INSERT INTO  tbl_treinos (data_do_treino, hora_inicial_do_treino, hora_final_do_treino, descricao_do_treino, fk_tipo_de_treino, fk_id_treino, dia_da_semana, nome, descricao, fk_id_cliente, treino_status, icone_treino) VALUES ('2014-05-13', '10:10', '10:10', 'LONGO', 1, 1, 'SEGUNDA', 'CARLOS', 'LONGO DE 15 KM PARA PACE DE 4:00', 1, '0', 'teste.png') "];
-    
-    if(isSave){
-        [self dismissViewControllerAnimated:YES completion:nil];
-        NSLog(@"Sucesso ao salvar");
-    } else {
-        NSLog(@"Erro ao salvar");
-    }
 }
 
 - (IBAction)viewUsers:(id)sender {
