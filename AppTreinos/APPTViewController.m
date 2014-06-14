@@ -12,7 +12,7 @@
 #import "DetalheTreinoViewController.h"
 #import "Usuario.h"
 #import "Treino.h"
-#import "APPTTableViewController.h"
+#import "TreinoViewController.h"
 
 @interface APPTViewController ()
 
@@ -97,16 +97,21 @@
                     
                     // Consulta training no webservice e importa para SQLite
                     BOOL returnImportTraining = [self importTraining:(pk_id_usuario)];
-                    NSLog(@"returnTraining: %d", returnImportTraining);
+                    NSLog(@"returnTraining segue: %d", returnImportTraining);
                     
                     /*ListaTreinosViewController *c = [[ListaTreinosViewController alloc] init];
                     c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
                     [self presentViewController:c animated:YES completion:nil];*/
-                    //if(returnImportTraining == 1){
-                        APPTTableViewController *c = [[APPTTableViewController alloc] init];
-                        c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-                        [self presentViewController:c animated:YES completion:nil];
-                    //}
+                    if(returnImportTraining == 1){
+                    
+                        //TreinoViewController *c = [[TreinoViewController alloc] init];
+                        //c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+                        //[self presentViewController:c animated:YES completion:nil];
+                    
+                    [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
+                    
+                    
+                    }
                     
                 } else {
                     NSString *error_msg = (NSString *) [jsonData objectForKey:@"error"];
