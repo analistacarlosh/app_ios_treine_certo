@@ -10,7 +10,7 @@
 #import "SBJson.h"
 #import "SCSQLite.h"
 
-@interface Treino : NSObject
+@interface Treino : NSObject 
 
 @property (nonatomic, retain) NSArray *training;
 

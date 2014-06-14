@@ -35,4 +35,11 @@
     return isSave;
 }
 
+- (NSArray *)getUser
+{
+    self.users = [SCSQLite selectRowSQL:@"SELECT * FROM tbl_user LIMIT 1"];
+    
+    return self.users;
+}
+
 @end
