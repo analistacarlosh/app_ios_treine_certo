@@ -18,10 +18,10 @@
     NSLog(@"user ==> %@", self.users);
 }
 
--(void)deleteUser
+-(BOOL)deleteUser
 {
-    self.users = [SCSQLite selectRowSQL:@"DELETE FROM tbl_user"];
-    NSLog(@"DELETE user ==> %@", self.users);
+    BOOL returnDeleteUser = [SCSQLite executeSQL:@"DELETE FROM tbl_user"];
+    return returnDeleteUser;
 }
 
 -(BOOL)insertUsers:(NSString *)email

@@ -16,10 +16,10 @@
     NSLog(@"Training ==> %@", self.training);
 }
 
-- (void)deleteTraining
+- (BOOL)deleteTraining
 {
-    self.training = [SCSQLite selectRowSQL:@"DELETE FROM tbl_treinos"];
-    NSLog(@"DELETE Training ==> %@", self.training);
+    BOOL delete = [SCSQLite executeSQL:@"DELETE FROM tbl_treinos"];
+    return delete;
 }
 
 -(BOOL)insertTraining:(NSDate *)data_do_treino

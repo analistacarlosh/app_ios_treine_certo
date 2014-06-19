@@ -9,6 +9,7 @@
 #import "TreinoViewController.h"
 #import "DetalheTreinoViewController.h"
 #import "SCSQLite.h"
+#import "Usuario.h"
 
 @interface TreinoViewController ()
 
@@ -30,9 +31,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    // data = [[NSMutableArray alloc]initWithObjects:@"Tiro", @"Logno", @"Rodagem", nil];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+
+    [self.tabBarController.tabBar setHidden:NO];
+    
     results = [SCSQLite selectRowSQL:@"SELECT * FROM tbl_treinos"];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    Usuario *usuario  = [[Usuario alloc] init];
+    NSArray *dataUser = [usuario getUser];
+    
+    if(dataUser.count == 0){
+        [self performSegueWithIdentifier:@"viewlogin" sender:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning

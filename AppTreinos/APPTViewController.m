@@ -24,13 +24,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+
+    //Usuario *usuario  = [[Usuario alloc] init];
+    //NSArray *dataUser = [usuario getUser];
+
+    //if(dataUser.count > 0){
+      //  [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
+        /*
+         TreinoViewController *c = [[TreinoViewController alloc] init];
+         c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+         [self presentViewController:c animated:YES completion:nil];
+         */
+    //}
     
-    Usuario *usuario = [[Usuario alloc] init];
-    NSArray *dataUser = [usuario getUser];
-    
-    if(dataUser.count > 0){
-        [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
-    }
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,26 +67,23 @@
             [self alertStatus:@"Por favor informe o e-mail e senha" :@"Login Failed!"];
         } else {
             
-            //  LOGIN
+            // LOGIN
             BOOL returnLoginUser = [self loginUser:(_txtEmail.text) senha_user:(_txtSenha.text)];
 
             if(returnLoginUser == TRUE){
 
                 Usuario *usuario = [[Usuario alloc] init];
                 NSArray *dataUser = [usuario getUser];
-                
-                NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"user_id"];
+                // NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"user_id"];
+                NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"token"];
                 
                 // Consulta training no webservice e importa para SQLite
                 BOOL returnImportTraining = [self importTraining:(pk_id_usuario)];
                 
                 if(returnImportTraining == TRUE){
-                    
-                    //TreinoViewController *c = [[TreinoViewController alloc] init];
-                    //c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-                    //[self presentViewController:c animated:YES completion:nil];
-                    
                     [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
+                } else {
+                    [self alertStatus:@"Login Failed!" :@"Falha ao importar o treinamento"];
                 }
                 
             } else {
@@ -135,7 +142,7 @@
             BOOL returnInsertUsers = [users insertUsers:(login) str_senha:(senha) str_pk_id_usuario:(pk_id_usuario) str_user_name:(user_name) str_fk_tipo_de_usuario:(fk_tipo_de_usuario)];
             NSLog(@"returnInsertUsers: %d", returnInsertUsers);
             
-            [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
+            // [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
             
             return TRUE;
             
@@ -156,7 +163,7 @@
 
     NSString *post =[[NSString alloc] initWithFormat:@"user=%@", idUser];
     
-    NSURL *url = [NSURL URLWithString:@"http://desenv.appsaude.admin/admin/rest/get-training-by-user/"];
+    NSURL *url = [NSURL URLWithString:@"http://www.appsaude.net/admin/rest/get-training-by-user/"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     

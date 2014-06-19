@@ -11,6 +11,7 @@
 		5E09ED9119218B54003089BA /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 5E09ED8E19218B54003089BA /* README.markdown */; };
 		5E09ED9219218B54003089BA /* SCSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E09ED9019218B54003089BA /* SCSQLite.m */; };
 		5E09ED94192195D6003089BA /* training.db in Resources */ = {isa = PBXBuildFile; fileRef = 5E09ED93192195D6003089BA /* training.db */; };
+		5E0BD9EA194DE83100179E54 /* UsuarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BD9E9194DE83100179E54 /* UsuarioViewController.m */; };
 		5E1F902319230BF4006770C2 /* DetalheTreinoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F902219230BF4006770C2 /* DetalheTreinoViewController.m */; };
 		5E20880D19292C0D0004ABA1 /* Treino.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20880C19292C0D0004ABA1 /* Treino.m */; };
 		5E20881019292C1F0004ABA1 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20880F19292C1F0004ABA1 /* Usuario.m */; };
@@ -41,6 +42,8 @@
 		5ED0ADBB191FC04D0026DFF9 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0ADAD191FC04D0026DFF9 /* SBJsonTokeniser.m */; };
 		5ED0ADBC191FC04D0026DFF9 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0ADAF191FC04D0026DFF9 /* SBJsonUTF8Stream.m */; };
 		5ED0ADBD191FC04D0026DFF9 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0ADB1191FC04D0026DFF9 /* SBJsonWriter.m */; };
+		5EFD0E9D194FBFAA0097D9A4 /* 391725_256704111119106_250911794_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EFD0E9B194FBFAA0097D9A4 /* 391725_256704111119106_250911794_n.jpg */; };
+		5EFD0E9F194FC0D40097D9A4 /* logo_mft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFD0E9E194FC0D40097D9A4 /* logo_mft.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,8 @@
 		5E09ED8F19218B54003089BA /* SCSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSQLite.h; path = "../../../../Desktop/SCSQLite-master/SCSQLite.h"; sourceTree = "<group>"; };
 		5E09ED9019218B54003089BA /* SCSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSQLite.m; path = "../../../../Desktop/SCSQLite-master/SCSQLite.m"; sourceTree = "<group>"; };
 		5E09ED93192195D6003089BA /* training.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = training.db; path = ../../../../Desktop/training.db; sourceTree = "<group>"; };
+		5E0BD9E8194DE83100179E54 /* UsuarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsuarioViewController.h; sourceTree = "<group>"; };
+		5E0BD9E9194DE83100179E54 /* UsuarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsuarioViewController.m; sourceTree = "<group>"; };
 		5E1F902119230BF4006770C2 /* DetalheTreinoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalheTreinoViewController.h; sourceTree = "<group>"; };
 		5E1F902219230BF4006770C2 /* DetalheTreinoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalheTreinoViewController.m; sourceTree = "<group>"; };
 		5E20880B19292C0D0004ABA1 /* Treino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treino.h; sourceTree = "<group>"; };
@@ -111,6 +116,8 @@
 		5ED0ADAF191FC04D0026DFF9 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		5ED0ADB0191FC04D0026DFF9 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		5ED0ADB1191FC04D0026DFF9 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		5EFD0E9B194FBFAA0097D9A4 /* 391725_256704111119106_250911794_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 391725_256704111119106_250911794_n.jpg; sourceTree = "<group>"; };
+		5EFD0E9E194FC0D40097D9A4 /* logo_mft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_mft.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +194,8 @@
 				5ED0AD72191FABCB0026DFF9 /* APPTAppDelegate.h */,
 				5ED0AD73191FABCB0026DFF9 /* APPTAppDelegate.m */,
 				5ED0AD75191FABCB0026DFF9 /* Main.storyboard */,
+				5E0BD9E8194DE83100179E54 /* UsuarioViewController.h */,
+				5E0BD9E9194DE83100179E54 /* UsuarioViewController.m */,
 				5E3FFFAD19439A1A004E6E54 /* TreinoViewController.h */,
 				5E3FFFAE19439A1A004E6E54 /* TreinoViewController.m */,
 				5E1F902119230BF4006770C2 /* DetalheTreinoViewController.h */,
@@ -206,6 +215,8 @@
 		5ED0AD6A191FABCB0026DFF9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5EFD0E9E194FC0D40097D9A4 /* logo_mft.png */,
+				5EFD0E9B194FBFAA0097D9A4 /* 391725_256704111119106_250911794_n.jpg */,
 				5E09ED93192195D6003089BA /* training.db */,
 				5ED0AD6B191FABCB0026DFF9 /* AppTreinos-Info.plist */,
 				5ED0AD6C191FABCB0026DFF9 /* InfoPlist.strings */,
@@ -313,6 +324,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = chfmr;
 				TargetAttributes = {
+					5ED0AD5F191FABCB0026DFF9 = {
+						DevelopmentTeam = JEQPV2U326;
+					};
 					5ED0AD80191FABCB0026DFF9 = {
 						TestTargetID = 5ED0AD5F191FABCB0026DFF9;
 					};
@@ -345,8 +359,10 @@
 				5E09ED94192195D6003089BA /* training.db in Resources */,
 				5ED0AD7C191FABCB0026DFF9 /* Images.xcassets in Resources */,
 				5ED0AD6E191FABCB0026DFF9 /* InfoPlist.strings in Resources */,
+				5EFD0E9D194FBFAA0097D9A4 /* 391725_256704111119106_250911794_n.jpg in Resources */,
 				5E09ED9119218B54003089BA /* README.markdown in Resources */,
 				5ED0AD77191FABCB0026DFF9 /* Main.storyboard in Resources */,
+				5EFD0E9F194FC0D40097D9A4 /* logo_mft.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +387,7 @@
 				5ED0AD70191FABCB0026DFF9 /* main.m in Sources */,
 				5ED0ADBB191FC04D0026DFF9 /* SBJsonTokeniser.m in Sources */,
 				5E3FFFAF19439A1A004E6E54 /* TreinoViewController.m in Sources */,
+				5E0BD9EA194DE83100179E54 /* UsuarioViewController.m in Sources */,
 				5ED0ADB2191FC04D0026DFF9 /* NSObject+SBJson.m in Sources */,
 				5ED0ADB8191FC04D0026DFF9 /* SBJsonStreamWriter.m in Sources */,
 				5ED0ADB4191FC04D0026DFF9 /* SBJsonStreamParser.m in Sources */,
@@ -450,6 +467,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Carlos Fructuoso (JEQPV2U326)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -466,9 +484,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -488,6 +507,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Carlos Fructuoso (JEQPV2U326)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -498,9 +518,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -509,10 +529,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppTreinos/AppTreinos-Prefix.pch";
 				INFOPLIST_FILE = "AppTreinos/AppTreinos-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -522,10 +545,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppTreinos/AppTreinos-Prefix.pch";
 				INFOPLIST_FILE = "AppTreinos/AppTreinos-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
