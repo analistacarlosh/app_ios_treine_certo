@@ -10,12 +10,12 @@
 #import "SBJson.h"
 #import "SCSQLite.h"
 
-@interface Treino : NSObject
+@interface Treino : NSObject 
 
 @property (nonatomic, retain) NSArray *training;
 
 - (void)showTraining;
-- (void)deleteTraining;
+- (BOOL)deleteTraining;
 - (BOOL)insertTraining:(NSDate *)data_do_treino
       hora_inicial_do_treino:(NSString *)hora_inicial_do_treino
       fk_tipo_de_treino:(NSString *)fk_tipo_de_treino

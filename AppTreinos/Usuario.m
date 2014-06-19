@@ -18,10 +18,10 @@
     NSLog(@"user ==> %@", self.users);
 }
 
--(void)deleteUser
+-(BOOL)deleteUser
 {
-    self.users = [SCSQLite selectRowSQL:@"DELETE FROM tbl_user"];
-    NSLog(@"DELETE user ==> %@", self.users);
+    BOOL returnDeleteUser = [SCSQLite executeSQL:@"DELETE FROM tbl_user"];
+    return returnDeleteUser;
 }
 
 -(BOOL)insertUsers:(NSString *)email
@@ -33,6 +33,13 @@
     BOOL isSave = [SCSQLite executeSQL:@"INSERT INTO tbl_user (email_login, password_login, token, user_name, fk_tipo_de_usuario) VALUES ('%@', '%@', '%@', '%@', '%@') ", email, senha, pk_id_usuario, email, fk_tipo_de_usuario];
     
     return isSave;
+}
+
+- (NSArray *)getUser
+{
+    self.users = [SCSQLite selectRowSQL:@"SELECT * FROM tbl_user LIMIT 1"];
+    
+    return self.users;
 }
 
 @end

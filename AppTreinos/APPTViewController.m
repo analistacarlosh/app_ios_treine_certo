@@ -12,7 +12,7 @@
 #import "DetalheTreinoViewController.h"
 #import "Usuario.h"
 #import "Treino.h"
-#import "APPTTableViewController.h"
+#import "TreinoViewController.h"
 
 @interface APPTViewController ()
 
@@ -24,6 +24,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+
+    //Usuario *usuario  = [[Usuario alloc] init];
+    //NSArray *dataUser = [usuario getUser];
+
+    //if(dataUser.count > 0){
+      //  [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
+        /*
+         TreinoViewController *c = [[TreinoViewController alloc] init];
+         c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+         [self presentViewController:c animated:YES completion:nil];
+         */
+    //}
+    
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,72 +67,27 @@
             [self alertStatus:@"Por favor informe o e-mail e senha" :@"Login Failed!"];
         } else {
             
-            NSString *post =[[NSString alloc] initWithFormat:@"email=%@&password=%@",[_txtEmail text],[_txtSenha text]];
-            
-            NSURL *url=[NSURL URLWithString:@"http://www.appsaude.net/admin/rest/login/"];
-            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-            NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-            
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:url];
-            [request setHTTPMethod:@"POST"];
-            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-            [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:postData];
-            
-            NSError *error = [[NSError alloc] init];
-            NSHTTPURLResponse *response = nil;
-            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            
-            // NSLog(@"Response code: %d", [response statusCode]);
-            if ([response statusCode] >=200 && [response statusCode] <300) {
-                
-                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                // NSLog(@"Response ==> %@", responseData);
-                
-                SBJsonParser *jsonParser = [SBJsonParser new];
-                id jsonData = [jsonParser objectWithString:responseData error:nil];
-                
-                NSInteger status = [(NSNumber *) [[jsonData objectAtIndex:0] objectForKey:@"status"] integerValue];
-                
-                if(status == 1) {
-                    
-                    [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
+            // LOGIN
+            BOOL returnLoginUser = [self loginUser:(_txtEmail.text) senha_user:(_txtSenha.text)];
 
-                    // Save Data User
-                    NSString *login = [[jsonData objectAtIndex:0] objectForKey:@"email"];
-                    NSString *senha = [[jsonData objectAtIndex:0] objectForKey:@"senha"];
-                    NSString *pk_id_usuario = [[jsonData objectAtIndex:0] objectForKey:@"pk_id_usuario"];
-                    NSString *user_name = [[jsonData objectAtIndex:0] objectForKey:@"user_name"];
-                    NSString *fk_tipo_de_usuario = [[jsonData objectAtIndex:0] objectForKey:@"fk_tipo_de_usuario"];
-                    
-                    // Cadastrando dados do login do usuario
-                    Usuario *users = [[Usuario alloc] init];
-                    BOOL returnInsertUsers = [users insertUsers:(login) str_senha:(senha) str_pk_id_usuario:(pk_id_usuario) str_user_name:(user_name) str_fk_tipo_de_usuario:(fk_tipo_de_usuario)];
-                    NSLog(@"returnInsertUsers: %d", returnInsertUsers);
-                    
-                    // Consulta training no webservice e importa para SQLite
-                    BOOL returnImportTraining = [self importTraining:(pk_id_usuario)];
-                    NSLog(@"returnTraining: %d", returnImportTraining);
-                    
-                    /*ListaTreinosViewController *c = [[ListaTreinosViewController alloc] init];
-                    c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-                    [self presentViewController:c animated:YES completion:nil];*/
-                    //if(returnImportTraining == 1){
-                        APPTTableViewController *c = [[APPTTableViewController alloc] init];
-                        c.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-                        [self presentViewController:c animated:YES completion:nil];
-                    //}
-                    
+            if(returnLoginUser == TRUE){
+
+                Usuario *usuario = [[Usuario alloc] init];
+                NSArray *dataUser = [usuario getUser];
+                // NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"user_id"];
+                NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"token"];
+                
+                // Consulta training no webservice e importa para SQLite
+                BOOL returnImportTraining = [self importTraining:(pk_id_usuario)];
+                
+                if(returnImportTraining == TRUE){
+                    [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
                 } else {
-                    NSString *error_msg = (NSString *) [jsonData objectForKey:@"error"];
-                    [self alertStatus:error_msg :@"Falha no login!"];
+                    [self alertStatus:@"Login Failed!" :@"Falha ao importar o treinamento"];
                 }
                 
             } else {
-                if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Falha na conexão" :@"Falha no login 2 !"];
+                [self alertStatus:@"Login Failed 4." :@"Login Failed!"];
             }
         }
     }
@@ -125,11 +97,73 @@
     }
 }
 
+- (BOOL)loginUser:(NSString *)email
+                senha_user:(NSString *)senha {
+
+    NSString *post =[[NSString alloc] initWithFormat:@"email=%@&password=%@",[_txtEmail text],[_txtSenha text]];
+    
+    NSURL *url=[NSURL URLWithString:@"http://www.appsaude.net/admin/rest/login/"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *response = nil;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    // NSLog(@"Response code: %d", [response statusCode]);
+    if ([response statusCode] >=200 && [response statusCode] <300) {
+        
+        NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+        
+        SBJsonParser *jsonParser = [SBJsonParser new];
+        id jsonData = [jsonParser objectWithString:responseData error:nil];
+        
+        NSInteger status = [(NSNumber *) [[jsonData objectAtIndex:0] objectForKey:@"status"] integerValue];
+        
+        if(status == 1) {
+            
+            // Save Data User
+            NSString *login = [[jsonData objectAtIndex:0] objectForKey:@"email"];
+            NSString *senha = [[jsonData objectAtIndex:0] objectForKey:@"senha"];
+            NSString *pk_id_usuario = [[jsonData objectAtIndex:0] objectForKey:@"pk_id_usuario"];
+            NSString *user_name = [[jsonData objectAtIndex:0] objectForKey:@"user_name"];
+            NSString *fk_tipo_de_usuario = [[jsonData objectAtIndex:0] objectForKey:@"fk_tipo_de_usuario"];
+            
+            // Cadastrando dados do login do usuario
+            Usuario *users = [[Usuario alloc] init];
+            BOOL returnInsertUsers = [users insertUsers:(login) str_senha:(senha) str_pk_id_usuario:(pk_id_usuario) str_user_name:(user_name) str_fk_tipo_de_usuario:(fk_tipo_de_usuario)];
+            NSLog(@"returnInsertUsers: %d", returnInsertUsers);
+            
+            // [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
+            
+            return TRUE;
+            
+        } else {
+            NSString *error_msg = (NSString *) [jsonData objectForKey:@"error"];
+            [self alertStatus:error_msg :@"Falha no login!"];
+            return FALSE;
+        }
+        
+    } else {
+        if (error) NSLog(@"Error: %@", error);
+        [self alertStatus:@"Falha na conexão" :@"Falha no login 2 !"];
+        return FALSE;
+    }
+}
+
 - (BOOL)importTraining:(NSString *)idUser{
 
     NSString *post =[[NSString alloc] initWithFormat:@"user=%@", idUser];
     
-    NSURL *url = [NSURL URLWithString:@"http://desenv.appsaude.admin/admin/rest/get-training-by-user/"];
+    NSURL *url = [NSURL URLWithString:@"http://www.appsaude.net/admin/rest/get-training-by-user/"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     

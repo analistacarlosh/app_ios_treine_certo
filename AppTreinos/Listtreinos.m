@@ -1,20 +1,18 @@
 //
-//  APPTTableViewController.m
+//  Listtreinos.m
 //  AppTreinos
 //
-//  Created by Mac Book Pro on 13/05/14.
+//  Created by Mac Book Pro on 06/06/14.
 //  Copyright (c) 2014 chfmr. All rights reserved.
 //
 
-#import "APPTTableViewController.h"
-#import "SCSQLite.h"
-#import "DetalheTreinoViewController.h"
+#import "Listtreinos.h"
 
-@interface APPTTableViewController ()
+@interface Listtreinos ()
 
 @end
 
-@implementation APPTTableViewController
+@implementation Listtreinos
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,29 +26,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    results = [SCSQLite selectRowSQL:@"SELECT * FROM tbl_treinos"];
+    
+    t = [[ NSMutableArray alloc]init ];
+    
+    [t addObject:@"Tiro de 200 mts"];
+    [t addObject:@"Tiro de 300 mts"];
+    [t addObject:@"Rodagem de 10km"];
+    [t addObject:@"Rodagem de 13 km"];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    /*treinos = [[NSMutableArray alloc] init];
-    [treinos addObject:@"Lonao"];
-    [treinos addObject:@"Fatlek"];
-    [treinos addObject:@"Tiros"];
-    [treinos addObject:@"Tiross"];*/
-    
-    
-    [self setTitle:@"Treinos"];
-}
-
--(void)viewWillAppear:(BOOL)animated {
-
-    results = [SCSQLite selectRowSQL:@"SELECT * FROM tbl_treinos"];
-    [self.tableView reloadData];
-    [super viewWillAppear:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,40 +47,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+// #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+// #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    // return [treinos count];
-    return results.count;
+    return t.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celltraining" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celll" forIndexPath:indexPath];
     
     // Configure the cell...
-    
-    /*if (!CellId) {
-        CellId = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:@"CellIdd"];
-    }*/
-    
-    NSDictionary *treino = [results objectAtIndex:indexPath.row];
-    cell.textLabel.text = [treino objectForKey:@"descricao_do_treino"];
-    cell.detailTextLabel.text = [treino objectForKey:@"data_do_treino"];
-    //CellId.textLabel.text = [treinos objectAtIndex:indexPath.row];
-    
+    cell.textLabel.text = [t objectAtIndex:indexPath.row];
     return cell;
+
 }
 
 
@@ -144,18 +123,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"detalheTreino"]){
-        DetalheTreinoViewController *DetalheTreino = (DetalheTreinoViewController *) segue.destinationViewController;
-        
-        //NSIndexPath *indexPath = [self. indexPathForSelectedRow];
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DetalheTreino.treino = [results objectAtIndex:indexPath.row];
-        
-    }
-}
 
 @end
