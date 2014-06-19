@@ -63,33 +63,42 @@
     
     @try {
         
-        if([[_txtEmail text] isEqualToString:@""] || [[_txtSenha text] isEqualToString:@""] ) {
-            [self alertStatus:@"Por favor informe o e-mail e senha" :@"Login Failed!"];
-        } else {
-            
-            // LOGIN
-            BOOL returnLoginUser = [self loginUser:(_txtEmail.text) senha_user:(_txtSenha.text)];
+        BOOL returnConnectedToInternet = [self connectedToInternet];
 
-            if(returnLoginUser == TRUE){
-
-                Usuario *usuario = [[Usuario alloc] init];
-                NSArray *dataUser = [usuario getUser];
-                // NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"user_id"];
-                NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"token"];
-                
-                // Consulta training no webservice e importa para SQLite
-                BOOL returnImportTraining = [self importTraining:(pk_id_usuario)];
-                
-                if(returnImportTraining == TRUE){
-                    [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
-                } else {
-                    [self alertStatus:@"Login Failed!" :@"Falha ao importar o treinamento"];
-                }
-                
+        if(returnConnectedToInternet == TRUE){
+        
+            if([[_txtEmail text] isEqualToString:@""] || [[_txtSenha text] isEqualToString:@""] ) {
+                [self alertStatus:@"Por favor informe o e-mail e senha" :@"Login Failed!"];
             } else {
-                [self alertStatus:@"Login Failed 4." :@"Login Failed!"];
+                
+                // LOGIN
+                BOOL returnLoginUser = [self loginUser:(_txtEmail.text) senha_user:(_txtSenha.text)];
+
+                if(returnLoginUser == TRUE){
+
+                    Usuario *usuario = [[Usuario alloc] init];
+                    NSArray *dataUser = [usuario getUser];
+                    // NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"user_id"];
+                    NSString *pk_id_usuario = [[dataUser objectAtIndex:0] objectForKey:@"token"];
+                    
+                    // Consulta training no webservice e importa para SQLite
+                    BOOL returnImportTraining = [self importTraining:(pk_id_usuario)];
+                    
+                    if(returnImportTraining == TRUE){
+                        [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
+                    } else {
+                        [self alertStatus:@"Login Failed!" :@"Falha ao importar o treinamento"];
+                    }
+                    
+                } else {
+                    [self alertStatus:@"Login Failed 4." :@"Login Failed!"];
+                }
             }
+        
+        } else {
+            [self alertStatus:@"Sem conexão com a internet" :@"Login"];
         }
+        
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
@@ -258,6 +267,12 @@
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (BOOL) connectedToInternet
+{
+    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
+    return ( URLString != NULL ) ? YES : NO;
 }
 
 @end
