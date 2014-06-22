@@ -15,6 +15,12 @@
 		5E1F902319230BF4006770C2 /* DetalheTreinoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F902219230BF4006770C2 /* DetalheTreinoViewController.m */; };
 		5E20880D19292C0D0004ABA1 /* Treino.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20880C19292C0D0004ABA1 /* Treino.m */; };
 		5E20881019292C1F0004ABA1 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20880F19292C1F0004ABA1 /* Usuario.m */; };
+		5E3733D919565FE70052DAB5 /* icon-comment-lanch.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E3733D619565FE70052DAB5 /* icon-comment-lanch.png */; };
+		5E3733DA19565FE70052DAB5 /* icon-done-lanch.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E3733D719565FE70052DAB5 /* icon-done-lanch.png */; };
+		5E3733DB19565FE70052DAB5 /* icon-not-lanch.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E3733D819565FE70052DAB5 /* icon-not-lanch.png */; };
+		5E3733DE195662100052DAB5 /* images (1).jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5E3733DC195662100052DAB5 /* images (1).jpeg */; };
+		5E3733DF195662100052DAB5 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5E3733DD195662100052DAB5 /* images.jpeg */; };
+		5E3733E1195662EC0052DAB5 /* refresh-icon-300x300.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E3733E0195662EC0052DAB5 /* refresh-icon-300x300.png */; };
 		5E3FFFAF19439A1A004E6E54 /* TreinoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FFFAE19439A1A004E6E54 /* TreinoViewController.m */; };
 		5ED0AD64191FABCB0026DFF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED0AD63191FABCB0026DFF9 /* Foundation.framework */; };
 		5ED0AD66191FABCB0026DFF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED0AD65191FABCB0026DFF9 /* CoreGraphics.framework */; };
@@ -70,6 +76,12 @@
 		5E20880C19292C0D0004ABA1 /* Treino.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Treino.m; sourceTree = "<group>"; };
 		5E20880E19292C1F0004ABA1 /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Usuario.h; sourceTree = "<group>"; };
 		5E20880F19292C1F0004ABA1 /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
+		5E3733D619565FE70052DAB5 /* icon-comment-lanch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-comment-lanch.png"; sourceTree = "<group>"; };
+		5E3733D719565FE70052DAB5 /* icon-done-lanch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-done-lanch.png"; sourceTree = "<group>"; };
+		5E3733D819565FE70052DAB5 /* icon-not-lanch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-not-lanch.png"; sourceTree = "<group>"; };
+		5E3733DC195662100052DAB5 /* images (1).jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images (1).jpeg"; sourceTree = "<group>"; };
+		5E3733DD195662100052DAB5 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		5E3733E0195662EC0052DAB5 /* refresh-icon-300x300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh-icon-300x300.png"; sourceTree = "<group>"; };
 		5E3FFFAD19439A1A004E6E54 /* TreinoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreinoViewController.h; sourceTree = "<group>"; };
 		5E3FFFAE19439A1A004E6E54 /* TreinoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreinoViewController.m; sourceTree = "<group>"; };
 		5ED0AD60191FABCB0026DFF9 /* AppTreinos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTreinos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +227,12 @@
 		5ED0AD6A191FABCB0026DFF9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5E3733DC195662100052DAB5 /* images (1).jpeg */,
+				5E3733E0195662EC0052DAB5 /* refresh-icon-300x300.png */,
+				5E3733DD195662100052DAB5 /* images.jpeg */,
+				5E3733D619565FE70052DAB5 /* icon-comment-lanch.png */,
+				5E3733D719565FE70052DAB5 /* icon-done-lanch.png */,
+				5E3733D819565FE70052DAB5 /* icon-not-lanch.png */,
 				5EFD0E9E194FC0D40097D9A4 /* logo_mft.png */,
 				5EFD0E9B194FBFAA0097D9A4 /* 391725_256704111119106_250911794_n.jpg */,
 				5E09ED93192195D6003089BA /* training.db */,
@@ -359,10 +377,16 @@
 				5E09ED94192195D6003089BA /* training.db in Resources */,
 				5ED0AD7C191FABCB0026DFF9 /* Images.xcassets in Resources */,
 				5ED0AD6E191FABCB0026DFF9 /* InfoPlist.strings in Resources */,
+				5E3733E1195662EC0052DAB5 /* refresh-icon-300x300.png in Resources */,
 				5EFD0E9D194FBFAA0097D9A4 /* 391725_256704111119106_250911794_n.jpg in Resources */,
 				5E09ED9119218B54003089BA /* README.markdown in Resources */,
+				5E3733DF195662100052DAB5 /* images.jpeg in Resources */,
+				5E3733D919565FE70052DAB5 /* icon-comment-lanch.png in Resources */,
 				5ED0AD77191FABCB0026DFF9 /* Main.storyboard in Resources */,
+				5E3733DE195662100052DAB5 /* images (1).jpeg in Resources */,
+				5E3733DB19565FE70052DAB5 /* icon-not-lanch.png in Resources */,
 				5EFD0E9F194FC0D40097D9A4 /* logo_mft.png in Resources */,
+				5E3733DA19565FE70052DAB5 /* icon-done-lanch.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +558,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppTreinos/AppTreinos-Prefix.pch";
 				INFOPLIST_FILE = "AppTreinos/AppTreinos-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -550,6 +575,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppTreinos/AppTreinos-Prefix.pch";
 				INFOPLIST_FILE = "AppTreinos/AppTreinos-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

@@ -20,6 +20,10 @@
     if (self) {
         // Custom initialization
     }
+    CGRect frameRect = self.obs_alunos.frame;
+    frameRect.size.height = 300;
+    self.obs_alunos.frame = frameRect;
+    
     return self;
 }
 
@@ -27,6 +31,9 @@
 {
     self.treino_nome.text            = [self.treino valueForKey:@"nome"];
     self.treino_horario_inicial.text = [self.treino valueForKey:@"descricao"];
+    CGRect frameRect = self.obs_alunos.frame;
+    frameRect.size.height = 300;
+    self.obs_alunos.frame = frameRect;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -36,6 +43,10 @@
 -(void) viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.tabBarController.tabBar setHidden:NO];
+    
+    CGRect frameRect = self.obs_alunos.frame;
+    frameRect.size.height = 300;
+    self.obs_alunos.frame = frameRect;
 }
 
 - (void)didReceiveMemoryWarning

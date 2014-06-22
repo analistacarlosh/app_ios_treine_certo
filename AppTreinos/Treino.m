@@ -12,7 +12,7 @@
 
 - (void)showTraining
 {
-    self.training = [SCSQLite selectRowSQL:@"SELECT * FROM tbl_treinos"];
+    self.training = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, strftime('%s', t.data_do_treino), t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, icone_treino FROM tbl_treinos AS t"];
     NSLog(@"Training ==> %@", self.training);
 }
 

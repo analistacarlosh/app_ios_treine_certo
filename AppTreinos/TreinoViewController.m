@@ -37,7 +37,7 @@
 
     [self.tabBarController.tabBar setHidden:NO];
     
-    results = [SCSQLite selectRowSQL:@"SELECT * FROM tbl_treinos"];
+    results = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, t.data_do_treino, t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, icone_treino FROM tbl_treinos AS t"];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     Usuario *usuario  = [[Usuario alloc] init];
@@ -91,11 +91,15 @@
     
     NSDictionary *treino = [results objectAtIndex:indexPath.row];
     cell.textLabel.text = [treino objectForKey:@"nome"];
-    //cell.detailTextLabel.text = [treino objectForKey:@"data_do_treino"];
-    //CellId.textLabel.text = [treinos objectAtIndex:indexPath.row];
+    
+    NSString *data_do_treino    = [treino objectForKey:@"data_do_treino"];
+    NSArray *dateSplit = [data_do_treino componentsSeparatedByString:@"-"];
+
+    NSString *data_exercicio    = [NSString stringWithFormat: @"%@ %@/%@/%@", [treino objectForKey:@"dia_da_semana"], [dateSplit objectAtIndex:2], [dateSplit objectAtIndex:1], [dateSplit objectAtIndex:0]];
+    
+    cell.detailTextLabel.text = data_exercicio;
     
     return cell;
-    
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
