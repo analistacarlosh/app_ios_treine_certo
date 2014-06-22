@@ -7,6 +7,7 @@
 //
 
 #import "DetalheTreinoViewController.h"
+#import "Treino.h"
 
 @interface DetalheTreinoViewController ()
 
@@ -20,33 +21,25 @@
     if (self) {
         // Custom initialization
     }
-    CGRect frameRect = self.obs_alunos.frame;
-    frameRect.size.height = 300;
-    self.obs_alunos.frame = frameRect;
     
     return self;
 }
 
 - (void)viewDidLoad
 {
+    // NSLog(@" %@ ", self.treino);
     self.treino_nome.text            = [self.treino valueForKey:@"nome"];
     self.treino_horario_inicial.text = [self.treino valueForKey:@"descricao"];
-    CGRect frameRect = self.obs_alunos.frame;
-    frameRect.size.height = 300;
-    self.obs_alunos.frame = frameRect;
-    
+    self.id_treino.text              = [[self.treino valueForKey:@"pk_id_treino"] stringValue];
+
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
 }
 
 -(void) viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.tabBarController.tabBar setHidden:NO];
     
-    CGRect frameRect = self.obs_alunos.frame;
-    frameRect.size.height = 300;
-    self.obs_alunos.frame = frameRect;
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +47,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
@@ -66,4 +60,43 @@
 }
 */
 
+- (IBAction)btn_training_done:(id)sender {
+    
+    Treino *treino = [[Treino alloc] init];
+    
+    NSLog(@"btn_training_done");
+    NSString *treino_status_text = @"1";
+    
+    BOOL isUpdate = [treino updateStatusTraining:(_id_treino.text) treino_status:(treino_status_text) treino_observacao:(_obs_alunos.text)];
+    
+    NSLog(@"return updateStatusTraining %d", isUpdate);
+    
+    // Verificar conexao
+    
+    // Consultar todas as transacoes para enviar ao server
+    
+    // Enviar ao server
+    
+    // Exibir msg
+    
+    // NSArray *dataTraining = [treino getTraining:(_id_treino.text)];
+    // NSLog(@"dataTraining: %@", dataTraining);
+}
+
+- (IBAction)btn_training_change:(id)sender {
+    
+}
+
+- (IBAction)btn_training_not:(id)sender {
+    
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (IBAction)backgroundTab_detalhe_treino:(id)sender {
+    [self.view endEditing:YES];
+}
 @end

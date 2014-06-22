@@ -14,8 +14,10 @@
 @property (strong) NSDictionary *treino;
 @property (strong, nonatomic) IBOutlet UITextField *obs_alunos;
 @property (strong, nonatomic) IBOutlet UILabel *status_treino;
-@property (strong, nonatomic) IBOutlet UIButton *btn_treino_feito;
-@property (strong, nonatomic) IBOutlet UIButton *btn_treino_alterado;
-@property (strong, nonatomic) IBOutlet UIButton *btn_treino_nao_feito;
+- (IBAction)btn_training_done:(id)sender;
+- (IBAction)btn_training_change:(id)sender;
+- (IBAction)btn_training_not:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *id_treino;
+- (IBAction)backgroundTab_detalhe_treino:(id)sender;
 
 @end

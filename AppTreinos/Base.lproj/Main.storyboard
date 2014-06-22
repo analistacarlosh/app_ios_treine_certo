@@ -214,7 +214,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="celltreino" textLabel="eq0-ou-fwE" detailTextLabel="lG6-gv-oF7" imageView="fkw-ee-I1z" style="IBUITableViewCellStyleSubtitle" id="WOR-ZJ-8mh">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WOR-ZJ-8mh" id="GeI-lZ-W5w">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -380,6 +380,9 @@
                                 <state key="normal" backgroundImage="icon-done-lanch.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btn_training_done:" destination="JeB-PI-qFv" eventType="touchUpInside" id="Ng0-66-wvz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKc-X2-GVQ">
                                 <rect key="frame" x="146" y="446" width="40" height="40"/>
@@ -387,6 +390,10 @@
                                 <state key="normal" backgroundImage="icon-comment-lanch.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btn_training_change:" destination="JeB-PI-qFv" eventType="touchUpInside" id="xT1-zc-Y0H"/>
+                                    <action selector="btn_treino_alterado:" destination="JeB-PI-qFv" eventType="touchUpInside" id="cAH-Dh-daa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUp-28-uwV">
                                 <rect key="frame" x="217" y="446" width="40" height="40"/>
@@ -394,6 +401,9 @@
                                 <state key="normal" backgroundImage="icon-not-lanch.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btn_training_not:" destination="JeB-PI-qFv" eventType="touchUpInside" id="9Zg-dM-v5D"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feito" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN0-Nu-Jqu">
                                 <rect key="frame" x="73" y="494" width="39" height="21"/>
@@ -430,15 +440,23 @@
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id_treino" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEi-ug-VvY">
+                                <rect key="frame" x="22" y="66" width="184" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="s3p-fC-IXh" appends="YES" id="WKZ-s1-xgC"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Detalhes do Treino" id="fOh-G3-B3W"/>
                     <connections>
-                        <outlet property="btn_treino_alterado" destination="xKc-X2-GVQ" id="4nT-Ws-J6B"/>
-                        <outlet property="btn_treino_feito" destination="UtM-1f-1Zd" id="0K3-il-sMK"/>
-                        <outlet property="btn_treino_nao_feito" destination="wUp-28-uwV" id="e43-pi-q9Y"/>
-                        <outlet property="obs_aluno" destination="SiV-US-bbY" id="84m-h1-c5e"/>
+                        <outlet property="id_treino" destination="zEi-ug-VvY" id="boi-nk-BkV"/>
                         <outlet property="obs_alunos" destination="SiV-US-bbY" id="7Af-IU-o2m"/>
                         <outlet property="status_treino" destination="zQc-0f-yFH" id="vHr-KD-YCi"/>
                         <outlet property="treino_horario_inicial" destination="IxF-Dw-PWb" id="GD2-NI-it6"/>
@@ -446,6 +464,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tad-qP-A1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s3p-fC-IXh">
+                    <connections>
+                        <action selector="backgroundTab_detalhe_treino:" destination="JeB-PI-qFv" id="SJ4-a2-wNM"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2830" y="-1024"/>
         </scene>
@@ -521,7 +544,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bCo-n3-xtJ"/>
+        <segue reference="ic4-d8-Zd6"/>
         <segue reference="Roi-sB-w4d"/>
     </inferredMetricsTieBreakers>
 </document>

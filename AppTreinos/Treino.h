@@ -15,7 +15,9 @@
 @property (nonatomic, retain) NSArray *training;
 
 - (void)showTraining;
+
 - (BOOL)deleteTraining;
+
 - (BOOL)insertTraining:(NSDate *)data_do_treino
       hora_inicial_do_treino:(NSString *)hora_inicial_do_treino
       fk_tipo_de_treino:(NSString *)fk_tipo_de_treino
@@ -25,4 +27,11 @@
       descricao:(NSString *)descricao_exercicio
       fk_id_cliente:(NSString *)fk_id_cliente
       treino_status:(NSString *)exercicio_status;
+
+- (BOOL)updateStatusTraining:(NSString *)id_treino
+treino_status:(NSString *)treino_status
+treino_observacao:(NSString *)treino_observacao;
+
+- (NSArray *)getTraining:(NSString *)id_treino;
+
 @end
