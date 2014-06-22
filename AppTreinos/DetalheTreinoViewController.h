@@ -12,7 +12,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *treino_nome;
 @property (weak, nonatomic) IBOutlet UILabel *treino_horario_inicial;
 @property (strong) NSDictionary *treino;
-@property (strong, nonatomic) IBOutlet UITextField *obs_aluno;
 @property (strong, nonatomic) IBOutlet UITextField *obs_alunos;
+@property (strong, nonatomic) IBOutlet UILabel *status_treino;
+@property (strong, nonatomic) IBOutlet UIButton *btn_treino_feito;
+@property (strong, nonatomic) IBOutlet UIButton *btn_treino_alterado;
+@property (strong, nonatomic) IBOutlet UIButton *btn_treino_nao_feito;
 
 @end
