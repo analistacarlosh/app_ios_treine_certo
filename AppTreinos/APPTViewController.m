@@ -13,6 +13,7 @@
 #import "Usuario.h"
 #import "Treino.h"
 #import "TreinoViewController.h"
+#import "Alert.h"
 
 @interface APPTViewController ()
 
@@ -49,7 +50,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) alertStatus:(NSString *)msg :(NSString *)title
+/* - (void) alertStatus:(NSString *)msg :(NSString *)title
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                         message:msg
@@ -57,10 +58,12 @@
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil, nil];
     [alertView show];
-}
+} */
 
 - (IBAction)btnEntrar:(id)sender {
-    
+
+    Alert *alert = [[Alert alloc] init];
+
     @try {
         
         BOOL returnConnectedToInternet = [self connectedToInternet];
@@ -68,7 +71,7 @@
         if(returnConnectedToInternet == TRUE){
         
             if([[_txtEmail text] isEqualToString:@""] || [[_txtSenha text] isEqualToString:@""] ) {
-                [self alertStatus:@"Por favor informe o e-mail e senha" :@"Login Failed!"];
+                [alert alertStatus:@"Por favor informe o e-mail e senha" :@"Login Failed!"];
             } else {
                 
                 // LOGIN
@@ -87,22 +90,22 @@
                     if(returnImportTraining == TRUE){
                         [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
                     } else {
-                        [self alertStatus:@"Login Failed!" :@"Falha ao importar o treinamento"];
+                        [alert alertStatus:@"Login Failed!" :@"Falha ao importar o treinamento"];
                     }
                     
                 } else {
-                    [self alertStatus:@"Login Failed 4." :@"Login Failed!"];
+                    [alert alertStatus:@"Login Failed 4." :@"Login Failed!"];
                 }
             }
         
         } else {
-            [self alertStatus:@"Sem conexão com a internet" :@"Login"];
+            [alert alertStatus:@"Sem conexão com a internet" :@"Login"];
         }
         
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Login Failed 3." :@"Login Failed!"];
+        [alert alertStatus:@"Login Failed 3." :@"Login Failed!"];
     }
 }
 
