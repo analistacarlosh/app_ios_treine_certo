@@ -11,6 +11,7 @@
 #import "SBJson.h"
 #import "Webservice.h"
 #import "Alert.h"
+#import "Usuario.h"
 
 @interface DetalheTreinoViewController ()
 
@@ -106,7 +107,7 @@
     //NSLog(@"datatraining: %@", datatraining);
 
     // sendDataCheckTraining
-    // BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
+    BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
     
     // NSArray *dataTraining = [treino getTraining:(_id_treino.text)];
     // NSLog(@"dataTraining: %@", dataTraining);
@@ -153,6 +154,12 @@
 {
     Treino *treino = [[ Treino alloc] init];
     Webservice *webservice = [[ Webservice alloc] init];
+    Usuario *usuario = [[ Usuario alloc] init];
+    NSArray *dataUser = [usuario getUser];
+    
+    NSString *token = [[dataUser objectAtIndex:0] objectForKey:@"token"];
+
+    
     // Consultar todas os treinos para enviar ao server
 
     SBJsonWriter *writer = [[SBJsonWriter alloc] init];
@@ -162,7 +169,7 @@
     NSString *jsonCommand = [writer stringWithObject:dataTraining];
     
     // Enviar ao server
-    BOOL returnd = [webservice conectWebService:(@"update-training") parameters:(jsonCommand)];
+    BOOL returnd = [webservice conectWebService:(@"update-training") parameters:(jsonCommand) token:(token)];
     
     return true;
 }

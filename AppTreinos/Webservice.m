@@ -22,7 +22,7 @@
     return urlBaseWebService = @"http://www.appsaude.net/admin/rest/";
 }
 
--(NSString*) conectWebService:(NSString*)urlwebservice parameters:(NSString *)parameters
+-(NSString*) conectWebService:(NSString*)urlwebservice parameters:(NSString *)parameters token:(NSString *)token
 {
     Alert *alert = [[ Alert alloc] init];
     NSString *responseData;
@@ -32,13 +32,14 @@
     
     if(returnConnectedToInternet == TRUE){
         
-        // @"user=%@", idUser
-        NSString *post =[[NSString alloc] initWithFormat:@"%@", parameters];
+        //NSString *post =[[NSString alloc] initWithFormat:@"%@", parameters];
+        //NSString *post =[[NSString alloc] initWithFormat:@"{carlos:carlos, nome:carlos}"];
+        NSString *post =[[NSString alloc] initWithFormat:@"token=%@&training=%@", token, parameters];
 
         // url
         //http://www.appsaude.net/admin/rest/get-training-by-user/
 
-        NSString *urlfull    = [NSString stringWithFormat: @"http://www.appsaude.net/admin/rest/get-training-by-user/%@", urlwebservice];
+        NSString *urlfull    = [NSString stringWithFormat: @"http://www.appsaude.net/admin/rest/%@", urlwebservice];
 
 
         NSURL *url = [NSURL URLWithString:urlfull];

@@ -15,7 +15,7 @@
 
 - (BOOL) connectedToInternet;
 
--(NSString*) conectWebService:(NSString*)urlwebservice parameters:(NSString *)parameters;
+-(NSString*) conectWebService:(NSString*)urlwebservice parameters:(NSString *)parameters token:(NSString *)token;
 
 -(NSString *) getUrlBaseWebService;
 
