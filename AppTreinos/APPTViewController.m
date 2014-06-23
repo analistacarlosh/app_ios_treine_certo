@@ -14,6 +14,7 @@
 #import "Treino.h"
 #import "TreinoViewController.h"
 #import "Alert.h"
+#import "Webservice.h"
 
 @interface APPTViewController ()
 
@@ -24,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -50,23 +52,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/* - (void) alertStatus:(NSString *)msg :(NSString *)title
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:msg
-                                                       delegate:self
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil, nil];
-    [alertView show];
-} */
-
 - (IBAction)btnEntrar:(id)sender {
 
     Alert *alert = [[Alert alloc] init];
+    Webservice *webservice = [[Webservice alloc] init];
 
     @try {
         
-        BOOL returnConnectedToInternet = [self connectedToInternet];
+        BOOL returnConnectedToInternet = [webservice connectedToInternet];
 
         if(returnConnectedToInternet == TRUE){
         
@@ -112,6 +105,8 @@
 - (BOOL)loginUser:(NSString *)email
                 senha_user:(NSString *)senha {
 
+    Alert *alert = [[Alert alloc] init];
+    
     NSString *post =[[NSString alloc] initWithFormat:@"email=%@&password=%@",[_txtEmail text],[_txtSenha text]];
     
     NSURL *url=[NSURL URLWithString:@"http://www.appsaude.net/admin/rest/login/"];
@@ -160,13 +155,13 @@
             
         } else {
             NSString *error_msg = (NSString *) [jsonData objectForKey:@"error"];
-            [self alertStatus:error_msg :@"Falha no login!"];
+            [alert alertStatus:error_msg :@"Falha no login!"];
             return FALSE;
         }
         
     } else {
         if (error) NSLog(@"Error: %@", error);
-        [self alertStatus:@"Falha na conexão" :@"Falha no login 2 !"];
+        [alert alertStatus:@"Falha na conexão" :@"Falha no login 2 !"];
         return FALSE;
     }
 }
@@ -270,12 +265,6 @@
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
-}
-
-- (BOOL) connectedToInternet
-{
-    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
-    return ( URLString != NULL ) ? YES : NO;
 }
 
 @end
