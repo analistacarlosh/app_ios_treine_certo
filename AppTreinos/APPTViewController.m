@@ -64,7 +64,7 @@
         if(returnConnectedToInternet == TRUE){
         
             if([[_txtEmail text] isEqualToString:@""] || [[_txtSenha text] isEqualToString:@""] ) {
-                [alert alertStatus:@"Por favor informe o e-mail e senha" :@"Login Failed!"];
+                [self alertStatus:@"Por favor informe o e-mail e senha" :@"Login Failed!"];
             } else {
                 
                 // LOGIN
@@ -83,22 +83,22 @@
                     if(returnImportTraining == TRUE){
                         [self performSegueWithIdentifier:@"listagemtreinos" sender:self];
                     } else {
-                        [alert alertStatus:@"Login Failed!" :@"Falha ao importar o treinamento"];
+                        [self alertStatus:@"Login Failed!" :@"Falha ao importar o treinamento"];
                     }
                     
                 } else {
-                    [alert alertStatus:@"Login Failed 4." :@"Login Failed!"];
+                    [self alertStatus:@"Login Failed 4." :@"Login Failed!"];
                 }
             }
         
         } else {
-            [alert alertStatus:@"Sem conexão com a internet" :@"Login"];
+            [self alertStatus:@"Sem conexão com a internet" :@"Login"];
         }
         
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [alert alertStatus:@"Login Failed 3." :@"Login Failed!"];
+        [self alertStatus:@"Login Failed 3." :@"Login Failed!"];
     }
 }
 
@@ -155,13 +155,13 @@
             
         } else {
             NSString *error_msg = (NSString *) [jsonData objectForKey:@"error"];
-            [alert alertStatus:error_msg :@"Falha no login!"];
+            [self alertStatus:error_msg :@"Falha no login!"];
             return FALSE;
         }
         
     } else {
         if (error) NSLog(@"Error: %@", error);
-        [alert alertStatus:@"Falha na conexão" :@"Falha no login 2 !"];
+        [self alertStatus:@"Falha na conexão" :@"Falha no login 2 !"];
         return FALSE;
     }
 }
@@ -265,6 +265,16 @@
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void) alertStatus:(NSString *)msg :(NSString *)title
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 @end

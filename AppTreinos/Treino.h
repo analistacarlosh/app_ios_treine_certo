@@ -34,4 +34,6 @@ treino_observacao:(NSString *)treino_observacao;
 
 - (NSArray *)getTraining:(NSString *)id_treino;
 
+- (NSArray *)getTrainingWhere:(NSString *)where;
+
 @end

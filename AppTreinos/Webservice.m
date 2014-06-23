@@ -25,37 +25,52 @@
 -(NSString*) conectWebService:(NSString*)urlwebservice parameters:(NSString *)parameters
 {
     Alert *alert = [[ Alert alloc] init];
+    NSString *responseData;
     
-    // @"user=%@", idUser
-    NSString *post =[[NSString alloc] initWithFormat:@"%@", parameters];
+    // Verificar conexao
+    BOOL returnConnectedToInternet = [self connectedToInternet];
     
-    // url
-    //http://www.appsaude.net/admin/rest/get-training-by-user/
-    
-    NSURL *url = [NSURL URLWithString:urlwebservice];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    
-    NSError *error = [[NSError alloc] init];
-    NSHTTPURLResponse *response = nil;
-    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    if ([response statusCode] >=200 && [response statusCode] <300) {
-        NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-        return responseData;
+    if(returnConnectedToInternet == TRUE){
+        
+        // @"user=%@", idUser
+        NSString *post =[[NSString alloc] initWithFormat:@"%@", parameters];
+
+        // url
+        //http://www.appsaude.net/admin/rest/get-training-by-user/
+
+        NSString *urlfull    = [NSString stringWithFormat: @"http://www.appsaude.net/admin/rest/get-training-by-user/%@", urlwebservice];
+
+
+        NSURL *url = [NSURL URLWithString:urlfull];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+        if ([response statusCode] >=200 && [response statusCode] <300) {
+            responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            return responseData;
+        } else {
+            // NSLog(@"Falha na comunicação com o servidor!");
+            [alert alertStatus:@"Falha!" :@"Falha na comunicação com o servidor, tente novamente!"];
+            responseData = @"false";
+        }
+        
     } else {
-        // NSLog(@"Falha na comunicação com o servidor!");
-        [alert alertStatus:@"Falha!" :@"Falha na comunicação com o servidor, tente novamente!"];
-        return @"false";
+        [alert alertStatus:@"Sem conexão com a internet" :@"Login"];
     }
+    
+    return responseData;
 }
 
 @end
