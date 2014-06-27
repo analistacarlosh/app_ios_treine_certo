@@ -19,5 +19,7 @@
 - (IBAction)btn_training_not:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *id_treino;
 - (IBAction)backgroundTab_detalhe_treino:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *km_treino;
+@property (strong, nonatomic) IBOutlet UITextField *tempo_treino;
 
 @end

@@ -26,11 +26,17 @@
       nome:(NSString *)nome_tipo_exercicio
       descricao:(NSString *)descricao_exercicio
       fk_id_cliente:(NSString *)fk_id_cliente
-      treino_status:(NSString *)exercicio_status;
+      treino_status:(NSString *)exercicio_status
+      fk_id_exercicio:(NSString *)fk_id_exercicio
+      nome_treinamento:(NSString *)nome_treinamento
+      km_treino:(NSString *)km_treino
+      tempo_treino:(NSString *)tempo_treino;
 
 - (BOOL)updateStatusTraining:(NSString *)id_treino
 treino_status:(NSString *)treino_status
-treino_observacao:(NSString *)treino_observacao;
+treino_observacao:(NSString *)treino_observacao
+km_treino:(NSString *)km_treino
+tempo_treino:(NSString *)tempo_treino;
 
 - (NSArray *)getTraining:(NSString *)id_treino;
 

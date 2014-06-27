@@ -10,6 +10,10 @@
 #import "DetalheTreinoViewController.h"
 #import "SCSQLite.h"
 #import "Usuario.h"
+#import "Treino.h"
+#import "SBJson.h"
+#import "Webservice.h"
+#import "Alert.h"
 
 @interface TreinoViewController ()
 
@@ -37,7 +41,10 @@
 
     [self.tabBarController.tabBar setHidden:NO];
     
-    results = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, t.data_do_treino, t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, icone_treino FROM tbl_treinos AS t"];
+    results = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, t.data_do_treino, t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, icone_treino, t.fk_id_exercicio, t.nome_treinamento, t.km_treino, t.tempo_treino FROM tbl_treinos AS t ORDER BY t.data_do_treino DESC "];
+    
+    NSLog(@"treino: %@", results);
+    
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     Usuario *usuario  = [[Usuario alloc] init];
@@ -115,4 +122,8 @@
     }
 }
 
+- (IBAction)update_training:(id)sender {
+    
+    
+}
 @end

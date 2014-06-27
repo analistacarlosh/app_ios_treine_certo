@@ -214,15 +214,30 @@
             NSString *descricao_exercicio = [[jsonData objectAtIndex:i] objectForKey:@"descricao_exercicio"];
             NSString *fk_id_cliente = [[jsonData objectAtIndex:i] objectForKey:@"fk_id_cliente"];
             NSString *exercicio_status = [[jsonData objectAtIndex:i] objectForKey:@"exercicio_status"];
+
+            NSString *fk_id_exercicio = [[jsonData objectAtIndex:i] objectForKey:@"pk_id_exercicios"];
+            NSString *nome_treinamento = [[jsonData objectAtIndex:i] objectForKey:@"nome_treinamento"];
+            
+            NSString *km_treino = [[jsonData objectAtIndex:i] objectForKey:@"km_treino"];
+            NSString *tempo_treino = [[jsonData objectAtIndex:i] objectForKey:@"tempo_treino"];
             
              NSLog(@" Before insert Training ");
             
             // Salvando Treino
             Treino *training = [[Treino alloc] init];
-            BOOL returnTraining = [training insertTraining:(data_do_treino) hora_inicial_do_treino:(hora_inicial_do_treino)
-                                         fk_tipo_de_treino:(fk_tipo_de_treino) fk_id_treino:(fk_id_treino)
-                                             dia_da_semana:(dia_da_semana) nome:(nome) descricao:(descricao_exercicio)
-                                             fk_id_cliente:(fk_id_cliente) treino_status:(exercicio_status)];
+            BOOL returnTraining = [training insertTraining:(data_do_treino)
+                                    hora_inicial_do_treino:(hora_inicial_do_treino)
+                                         fk_tipo_de_treino:(fk_tipo_de_treino)
+                                              fk_id_treino:(fk_id_treino)
+                                             dia_da_semana:(dia_da_semana)
+                                                      nome:(nome)
+                                                 descricao:(descricao_exercicio)
+                                             fk_id_cliente:(fk_id_cliente)
+                                             treino_status:(exercicio_status)
+                                           fk_id_exercicio:(fk_id_exercicio)
+                                            nome_treinamento:(nome_treinamento)
+                                             km_treino:(km_treino)
+                                              tempo_treino:(tempo_treino)];
 
             NSLog(@"returnTraining: %d", returnTraining);
         }

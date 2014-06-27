@@ -12,24 +12,24 @@
 
 - (void)showTraining
 {
-    self.training = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, t.data_do_treino, t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, icone_treino FROM tbl_treinos AS t"];
-    //NSLog(@"Training ==> %@", self.training);
+    self.training = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, t.data_do_treino, t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, t.data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, t.icone_treino, t.fk_id_exercicio, t.nome_treinamento FROM tbl_treinos AS t"];
+    NSLog(@"Training ==> %@", self.training);
 }
 
 - (NSArray *)getTraining:(NSString *)id_treino
 {
     int pk_id_treino = [id_treino intValue];
     
-    self.training = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, t.data_do_treino, t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, icone_treino FROM tbl_treinos AS t WHERE t.pk_id_treino = '%d' ", pk_id_treino];
+    self.training = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, t.data_do_treino, t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, icone_treino, t.fk_id_exercicio, t.nome_treinamento, t.km_treino, t.tempo_treino FROM tbl_treinos AS t WHERE t.pk_id_treino = '%d' ", pk_id_treino];
     
-    //NSLog(@"self.training: %@", self.training);
+    NSLog(@"self.training: %@", self.training);
     
     return self.training;
 }
 
 - (NSArray *)getTrainingWhere:(NSString *)where
 {
-    self.training = [SCSQLite selectRowSQL:@"SELECT t.pk_id_treino, t.data_do_treino, t.hora_inicial_do_treino, t.hora_final_do_treino, t.descricao_do_treino, t.observacao, t.fk_tipo_de_treino, t.fk_id_treino, t.dia_da_semana, t.nome, t.descricao, t.fk_id_cliente, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, icone_treino FROM tbl_treinos AS t WHERE t.status_update_webservice = 1 "];
+    self.training = [SCSQLite selectRowSQL:@"SELECT t.fk_id_treino, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, t.fk_id_exercicio, t.nome_treinamento, t.km_treino, t.tempo_treino, t.fk_id_cliente FROM tbl_treinos AS t WHERE t.status_update_webservice = 1 "];
     
     return self.training;
 }
@@ -48,30 +48,39 @@
     nome:(NSString *)nome_tipo_exercicio
     descricao:(NSString *)descricao_exercicio
     fk_id_cliente:(NSString *)fk_id_cliente
-    treino_status:(NSString *)exercicio_status {
+    treino_status:(NSString *)exercicio_status
+    fk_id_exercicio:(NSString *)fk_id_exercicio
+    nome_treinamento:(NSString *)nome_treinamento
+    km_treino:(NSString *)km_treino
+    tempo_treino:(NSString *)tempo_treino
+{
     
     int fktipodetreino = [fk_tipo_de_treino intValue];
     int fkidtreino     = [fk_id_treino intValue];
     int fkidcliente    = [fk_id_cliente intValue];
+    int fkidexercicio    = [fk_id_exercicio intValue];
     
-    BOOL isSave = [SCSQLite executeSQL:@"INSERT INTO  tbl_treinos (data_do_treino, hora_inicial_do_treino, fk_tipo_de_treino, fk_id_treino, dia_da_semana, nome, descricao, fk_id_cliente, treino_status) VALUES ('%@', '%@', '%d', '%d', '%@', '%@', '%@', '%d', '%@')",
-                   data_do_treino, hora_inicial_do_treino, fktipodetreino, fkidtreino, dia_da_semana, nome_tipo_exercicio, descricao_exercicio,
-                   fkidcliente, exercicio_status];
+    [self showTraining];
+    
+    BOOL isSave = [SCSQLite executeSQL:@"INSERT INTO  tbl_treinos (data_do_treino, hora_inicial_do_treino, fk_tipo_de_treino, fk_id_treino, dia_da_semana, nome, descricao, fk_id_cliente, treino_status, nome_treinamento, fk_id_exercicio, km_treino, tempo_treino) VALUES ('%@', '%@', '%d', '%d', '%@', '%@', '%@', '%d', '%@', '%@', '%d', '%@', '%@')",
+                   data_do_treino, hora_inicial_do_treino, fktipodetreino, fkidtreino, dia_da_semana,nome_tipo_exercicio, descricao_exercicio,
+                   fkidcliente, exercicio_status,
+                   nome_treinamento, fkidexercicio,
+                   km_treino, tempo_treino];
     
     return isSave;
 }
 
 -(BOOL)updateStatusTraining:(NSString *)id_treino
         treino_status:(NSString *)treino_status
-        treino_observacao:(NSString *)treino_observacao {
+        treino_observacao:(NSString *)treino_observacao
+        km_treino:(NSString *)km_treino
+        tempo_treino:(NSString *)tempo_treino{
     
     int pk_id_treino = [id_treino intValue];
     NSDate *data_ultimo_update = [NSDate date];
-
     
-    NSLog(@"antes UPDAte");
-    
-    BOOL isUpdate = [SCSQLite executeSQL:@"UPDATE tbl_treinos SET treino_status = '%@', treino_observacao_alterado = '%@', data_ultimo_update = '%@', status_update_webservice = 1 WHERE pk_id_treino = '%d'", treino_status, treino_observacao, data_ultimo_update, pk_id_treino];
+    BOOL isUpdate = [SCSQLite executeSQL:@"UPDATE tbl_treinos SET treino_status = '%@', treino_observacao_alterado = '%@', data_ultimo_update = '%@', km_treino = '%@', tempo_treino = '%@',  status_update_webservice = 1 WHERE pk_id_treino = '%d'", treino_status, treino_observacao, data_ultimo_update, km_treino, tempo_treino, pk_id_treino];
     
     return isUpdate;
 }

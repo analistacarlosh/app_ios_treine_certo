@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableviewtreinos;
 @property (strong, nonatomic) NSMutableArray *data;
+- (IBAction)update_training:(id)sender;
 
 @end

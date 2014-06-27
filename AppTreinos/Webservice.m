@@ -27,21 +27,12 @@
     Alert *alert = [[ Alert alloc] init];
     NSString *responseData;
     
-    // Verificar conexao
     BOOL returnConnectedToInternet = [self connectedToInternet];
     
     if(returnConnectedToInternet == TRUE){
         
-        //NSString *post =[[NSString alloc] initWithFormat:@"%@", parameters];
-        //NSString *post =[[NSString alloc] initWithFormat:@"{carlos:carlos, nome:carlos}"];
-        NSString *post =[[NSString alloc] initWithFormat:@"token=%@&training=%@", token, parameters];
-
-        // url
-        //http://www.appsaude.net/admin/rest/get-training-by-user/
-
+        NSString *post =[[NSString alloc] initWithFormat:@"token=%@&%@", token, parameters];
         NSString *urlfull    = [NSString stringWithFormat: @"http://www.appsaude.net/admin/rest/%@", urlwebservice];
-
-
         NSURL *url = [NSURL URLWithString:urlfull];
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];

@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [SCSQLite initWithDatabase:@"training.db"];
+    [SCSQLite initWithDatabase:@"treinoss.db"];
     // Override point for customization after application launch.
     return YES;
 }
