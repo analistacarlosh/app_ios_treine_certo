@@ -25,7 +25,6 @@
 		5E8A0709195D5C6A00FAC3EA /* icon_running@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A0708195D5C6A00FAC3EA /* icon_running@2x.png */; };
 		5E8A070B195D5CD000FAC3EA /* Chart_Up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A070A195D5CD000FAC3EA /* Chart_Up@2x.png */; };
 		5EABDEA1195D78A200B80ED7 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EABDEA0195D78A200B80ED7 /* Images-2.xcassets */; };
-		5EABDEA3195D794400B80ED7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EABDEA2195D794400B80ED7 /* Default-568h@2x.png */; };
 		5ED0AD64191FABCB0026DFF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED0AD63191FABCB0026DFF9 /* Foundation.framework */; };
 		5ED0AD66191FABCB0026DFF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED0AD65191FABCB0026DFF9 /* CoreGraphics.framework */; };
 		5ED0AD68191FABCB0026DFF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED0AD67191FABCB0026DFF9 /* UIKit.framework */; };
@@ -94,7 +93,6 @@
 		5E8A0708195D5C6A00FAC3EA /* icon_running@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_running@2x.png"; sourceTree = "<group>"; };
 		5E8A070A195D5CD000FAC3EA /* Chart_Up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chart_Up@2x.png"; sourceTree = "<group>"; };
 		5EABDEA0195D78A200B80ED7 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
-		5EABDEA2195D794400B80ED7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5ED0AD60191FABCB0026DFF9 /* AppTreinos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTreinos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED0AD63191FABCB0026DFF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5ED0AD65191FABCB0026DFF9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -182,7 +180,6 @@
 		5ED0AD57191FABCA0026DFF9 = {
 			isa = PBXGroup;
 			children = (
-				5EABDEA2195D794400B80ED7 /* Default-568h@2x.png */,
 				5ED0AD69191FABCB0026DFF9 /* AppTreinos */,
 				5ED0AD88191FABCB0026DFF9 /* AppTreinosTests */,
 				5ED0AD62191FABCB0026DFF9 /* Frameworks */,
@@ -406,7 +403,6 @@
 				5ED0AD77191FABCB0026DFF9 /* Main.storyboard in Resources */,
 				5E3733DB19565FE70052DAB5 /* icon-not-lanch.png in Resources */,
 				5EFD0E9F194FC0D40097D9A4 /* logo_mft.png in Resources */,
-				5EABDEA3195D794400B80ED7 /* Default-568h@2x.png in Resources */,
 				5E8A0701195D54A800FAC3EA /* dashboard_icon 2.png in Resources */,
 				5E3733DA19565FE70052DAB5 /* icon-done-lanch.png in Resources */,
 			);
@@ -578,6 +574,8 @@
 		5ED0AD93191FABCB0026DFF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-4";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -593,6 +591,8 @@
 		5ED0AD94191FABCB0026DFF9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-4";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
