@@ -31,6 +31,9 @@
 
 - (void)viewDidLoad
 {
+    [scroller setScrollEnabled:YES];
+    [scroller setContentSize:CGSizeMake(320,568)];
+    
     self.treino_nome.text            = [self.treino valueForKey:@"nome"];
     self.treino_horario_inicial.text = [self.treino valueForKey:@"descricao"];
     self.id_treino.text              = [[self.treino valueForKey:@"pk_id_treino"] stringValue];

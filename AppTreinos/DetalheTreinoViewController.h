@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetalheTreinoViewController : UIViewController
+@interface DetalheTreinoViewController : UIViewController {
+    IBOutlet UIScrollView *scroller;
+}
+
 @property (weak, nonatomic) IBOutlet UILabel *treino_nome;
 @property (weak, nonatomic) IBOutlet UILabel *treino_horario_inicial;
 @property (strong) NSDictionary *treino;
@@ -21,5 +24,4 @@
 - (IBAction)backgroundTab_detalhe_treino:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *km_treino;
 @property (strong, nonatomic) IBOutlet UITextField *tempo_treino;
-
 @end
