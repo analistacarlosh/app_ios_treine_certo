@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetalheTreinoViewController : UIViewController {
+@interface DetalheTreinoViewController : UIViewController <UIAlertViewDelegate> {
     IBOutlet UIScrollView *scroller;
+    UIAlertView *alert;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *treino_nome;
@@ -24,4 +25,8 @@
 - (IBAction)backgroundTab_detalhe_treino:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *km_treino;
 @property (strong, nonatomic) IBOutlet UITextField *tempo_treino;
+
+- (IBAction)startSpinning:(UIButton *)sender;
+- (IBAction)stopSpinning:(UIButton *)sender;
+
 @end

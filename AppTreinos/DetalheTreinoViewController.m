@@ -106,11 +106,6 @@
     
     NSLog(@"return updateStatusTraining %d", isUpdate);
     
-    if(isUpdate == TRUE){
-        [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
-        NSLog(@"Status do treino feito foi salvo!");
-    }
-    
     // NSArray *datatraining = [treino getTraining:(_id_treino.text)];
     // NSLog(@"datatraining: %@", datatraining);
 
@@ -119,6 +114,11 @@
     
     // NSArray *dataTraining = [treino getTraining:(_id_treino.text)];
     // NSLog(@"dataTraining: %@", dataTraining);
+    
+    if(isUpdate == TRUE){
+        [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
+        NSLog(@"Status do treino feito foi salvo!");
+    }
 }
 
 - (IBAction)btn_training_change:(id)sender {
@@ -133,11 +133,6 @@
     
     NSLog(@"return updateStatusTraining %d", isUpdate);
     
-    if(isUpdate == TRUE){
-        [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
-        NSLog(@"Status do treino feito foi salvo!");
-    }
-    
     // NSArray *datatraining = [treino getTraining:(_id_treino.text)];
     // NSLog(@"datatraining: %@", datatraining);
     
@@ -146,6 +141,11 @@
     
     // NSArray *dataTraining = [treino getTraining:(_id_treino.text)];
     // NSLog(@"dataTraining: %@", dataTraining);
+    
+    if(isUpdate == TRUE){
+        [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
+        NSLog(@"Status do treino feito foi salvo!");
+    }
 
 }
 
@@ -161,19 +161,20 @@
     
     NSLog(@"return updateStatusTraining %d", isUpdate);
     
+    // NSArray *datatraining = [treino getTraining:(_id_treino.text)];
+    // NSLog(@"datatraining: %@", datatraining);
+    
     if(isUpdate == TRUE){
         [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
         NSLog(@"Status do treino feito foi salvo!");
     }
-    
-    // NSArray *datatraining = [treino getTraining:(_id_treino.text)];
-    // NSLog(@"datatraining: %@", datatraining);
     
     // sendDataCheckTraining
     BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
     
     // NSArray *dataTraining = [treino getTraining:(_id_treino.text)];
     // NSLog(@"dataTraining: %@", dataTraining);
+    
 }
 
 - (BOOL) sendDataCheckTraining
@@ -195,8 +196,17 @@
         NSString *stringDataTraining    = [writer stringWithObject:dataTrainingCheck];
         NSString *jsonDataTraining      = [NSString stringWithFormat: @"training=%@", stringDataTraining];
         
+        //[self startSpinner:@"startSpinner - Enviando dados ao Treinador!" :@"Treino"];
+       
+        NSLog(@"Exbindo alert enviando!");
+        
+        // [NSThread sleepForTimeInterval:7.0f];
+
         // Enviar ao webservice
-        BOOL returnd = [webservice conectWebService:(@"update-training") parameters:(jsonDataTraining) token:(token)];
+         BOOL returnd = [webservice conectWebService:(@"update-training") parameters:(jsonDataTraining) token:(token)];
+
+        //[self stopSpinner];
+        NSLog(@"stop alert enviando!");
         
         // Update treinos atualizados
     } else {
@@ -223,6 +233,27 @@
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil, nil];
     [alertView show];
+}
+
+//show loading activity.
+- (void)startSpinner:(NSString *)message :(NSString *)title{
+    alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    [alert show];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    // Adjust the indicator so it is up a few pixels from the bottom of the alert
+    indicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50);
+    [indicator startAnimating];
+    [alert addSubview:indicator];
+    //[indicator release];
+}
+
+//hide loading activity.
+- (void)stopSpinner {
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+        alert = nil;
+    // [self performSelector:@selector(showBadNews:) withObject:error afterDelay:0.1];
 }
 
 @end
