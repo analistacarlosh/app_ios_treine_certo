@@ -97,7 +97,6 @@
 - (IBAction)btn_training_done:(id)sender {
     
     Treino *treino = [[Treino alloc] init];
-    //Alert *alert   = [[Alert alloc ] init];
     
     NSLog(@"btn_training_done");
     NSString *treino_status_text = @"1";
@@ -105,26 +104,24 @@
     BOOL isUpdate = [treino updateStatusTraining:(_id_treino.text) treino_status:(treino_status_text) treino_observacao:(_obs_alunos.text) km_treino:(_km_treino.text) tempo_treino:(_tempo_treino.text)];
     
     NSLog(@"return updateStatusTraining %d", isUpdate);
-    
-    // NSArray *datatraining = [treino getTraining:(_id_treino.text)];
-    // NSLog(@"datatraining: %@", datatraining);
 
-    // sendDataCheckTraining
-    BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
-    
-    // NSArray *dataTraining = [treino getTraining:(_id_treino.text)];
-    // NSLog(@"dataTraining: %@", dataTraining);
-    
     if(isUpdate == TRUE){
         [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
         NSLog(@"Status do treino feito foi salvo!");
     }
+
+    // sendDataCheckTraining
+    // BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD showWhileExecuting:@selector(sendDataCheckTraining) onTarget:self withObject:nil animated:YES];
+    
 }
 
 - (IBAction)btn_training_change:(id)sender {
     
     Treino *treino = [[Treino alloc] init];
-    //Alert *alert   = [[Alert alloc ] init];
     
     NSLog(@"btn_training_change");
     NSString *treino_status_text = @"2";
@@ -133,20 +130,17 @@
     
     NSLog(@"return updateStatusTraining %d", isUpdate);
     
-    // NSArray *datatraining = [treino getTraining:(_id_treino.text)];
-    // NSLog(@"datatraining: %@", datatraining);
-    
-    // sendDataCheckTraining
-    BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
-    
-    // NSArray *dataTraining = [treino getTraining:(_id_treino.text)];
-    // NSLog(@"dataTraining: %@", dataTraining);
-    
     if(isUpdate == TRUE){
         [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
-        NSLog(@"Status do treino feito foi salvo!");
+        NSLog(@"Status do treino alterado foi salvo!");
     }
-
+    
+    // sendDataCheckTraining
+    // BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD showWhileExecuting:@selector(sendDataCheckTraining) onTarget:self withObject:nil animated:YES];
 }
 
 - (IBAction)btn_training_not:(id)sender {
@@ -166,14 +160,23 @@
     
     if(isUpdate == TRUE){
         [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
-        NSLog(@"Status do treino feito foi salvo!");
+        NSLog(@"Status do treino não feito foi salvo!");
     }
     
     // sendDataCheckTraining
-    BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
+    //BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
     
-    // NSArray *dataTraining = [treino getTraining:(_id_treino.text)];
-    // NSLog(@"dataTraining: %@", dataTraining);
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+//    [HUD showWhileExecuting:@selector(sendDataCheckTraining) onTarget:self withObject:nil animated:YES];
+    
+	[HUD showAnimated:YES whileExecutingBlock:^{
+		[self sendDataCheckTraining];
+	} completionBlock:^{
+		[HUD removeFromSuperview];
+		//[HUD release];
+	}];
+    
     
 }
 
@@ -196,19 +199,12 @@
         NSString *stringDataTraining    = [writer stringWithObject:dataTrainingCheck];
         NSString *jsonDataTraining      = [NSString stringWithFormat: @"training=%@", stringDataTraining];
         
-        //[self startSpinner:@"startSpinner - Enviando dados ao Treinador!" :@"Treino"];
-       
-        NSLog(@"Exbindo alert enviando!");
-        
-        // [NSThread sleepForTimeInterval:7.0f];
+        [NSThread sleepForTimeInterval:1.0f];
 
-        // Enviar ao webservice
+         // Enviar ao webservice
          BOOL returnd = [webservice conectWebService:(@"update-training") parameters:(jsonDataTraining) token:(token)];
 
-        //[self stopSpinner];
-        NSLog(@"stop alert enviando!");
-        
-        // Update treinos atualizados
+         // Update treinos atualizados
     } else {
         NSLog(@"sem internet");
     }

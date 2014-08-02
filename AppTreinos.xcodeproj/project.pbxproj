@@ -20,6 +20,19 @@
 		5E3733E719579E3B0052DAB5 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3733E619579E3B0052DAB5 /* Alert.m */; };
 		5E3733EA1957A1640052DAB5 /* Webservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3733E91957A1640052DAB5 /* Webservice.m */; };
 		5E3FFFAF19439A1A004E6E54 /* TreinoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FFFAE19439A1A004E6E54 /* TreinoViewController.m */; };
+		5E7A7AA1198C7A570039F2C9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A95198C7A570039F2C9 /* 37x-Checkmark.png */; };
+		5E7A7AA2198C7A570039F2C9 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A96198C7A570039F2C9 /* 37x-Checkmark@2x.png */; };
+		5E7A7AA3198C7A570039F2C9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A97198C7A570039F2C9 /* Default-568h@2x.png */; };
+		5E7A7AA4198C7A570039F2C9 /* Default-iOS7-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A98198C7A570039F2C9 /* Default-iOS7-568h@2x.png */; };
+		5E7A7AA5198C7A570039F2C9 /* Default-iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A99198C7A570039F2C9 /* Default-iOS7@2x.png */; };
+		5E7A7AA6198C7A570039F2C9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A9A198C7A570039F2C9 /* Default.png */; };
+		5E7A7AA7198C7A570039F2C9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A9B198C7A570039F2C9 /* Default@2x.png */; };
+		5E7A7AA8198C7A570039F2C9 /* Icon-iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A9C198C7A570039F2C9 /* Icon-iOS7@2x.png */; };
+		5E7A7AA9198C7A570039F2C9 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A9D198C7A570039F2C9 /* Icon-Small.png */; };
+		5E7A7AAA198C7A570039F2C9 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A9E198C7A570039F2C9 /* Icon-Small@2x.png */; };
+		5E7A7AAB198C7A570039F2C9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7A9F198C7A570039F2C9 /* Icon.png */; };
+		5E7A7AAC198C7A570039F2C9 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A7AA0198C7A570039F2C9 /* Icon@2x.png */; };
+		5E7A7AB0198C7AC00039F2C9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A7AAF198C7AC00039F2C9 /* MBProgressHUD.m */; };
 		5E8A0701195D54A800FAC3EA /* dashboard_icon 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A0700195D54A800FAC3EA /* dashboard_icon 2.png */; };
 		5E8A0707195D5ABD00FAC3EA /* Contact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A0706195D5ABD00FAC3EA /* Contact@2x.png */; };
 		5E8A0709195D5C6A00FAC3EA /* icon_running@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A0708195D5C6A00FAC3EA /* icon_running@2x.png */; };
@@ -88,6 +101,21 @@
 		5E3733E91957A1640052DAB5 /* Webservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webservice.m; sourceTree = "<group>"; };
 		5E3FFFAD19439A1A004E6E54 /* TreinoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreinoViewController.h; sourceTree = "<group>"; };
 		5E3FFFAE19439A1A004E6E54 /* TreinoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreinoViewController.m; sourceTree = "<group>"; };
+		5E7A7A95198C7A570039F2C9 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		5E7A7A96198C7A570039F2C9 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		5E7A7A97198C7A570039F2C9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5E7A7A98198C7A570039F2C9 /* Default-iOS7-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-iOS7-568h@2x.png"; sourceTree = "<group>"; };
+		5E7A7A99198C7A570039F2C9 /* Default-iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-iOS7@2x.png"; sourceTree = "<group>"; };
+		5E7A7A9A198C7A570039F2C9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5E7A7A9B198C7A570039F2C9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5E7A7A9C198C7A570039F2C9 /* Icon-iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iOS7@2x.png"; sourceTree = "<group>"; };
+		5E7A7A9D198C7A570039F2C9 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		5E7A7A9E198C7A570039F2C9 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		5E7A7A9F198C7A570039F2C9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		5E7A7AA0198C7A570039F2C9 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		5E7A7AAD198C7AC00039F2C9 /* MBProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD-Prefix.pch"; path = "../../../../Desktop/MBProgressHUD-master/MBProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		5E7A7AAE198C7AC00039F2C9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "../../../../Desktop/MBProgressHUD-master/MBProgressHUD.h"; sourceTree = "<group>"; };
+		5E7A7AAF198C7AC00039F2C9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "../../../../Desktop/MBProgressHUD-master/MBProgressHUD.m"; sourceTree = "<group>"; };
 		5E8A0700195D54A800FAC3EA /* dashboard_icon 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard_icon 2.png"; sourceTree = "<group>"; };
 		5E8A0706195D5ABD00FAC3EA /* Contact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contact@2x.png"; sourceTree = "<group>"; };
 		5E8A0708195D5C6A00FAC3EA /* icon_running@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_running@2x.png"; sourceTree = "<group>"; };
@@ -177,6 +205,26 @@
 			name = "SCSQLite-master";
 			sourceTree = "<group>";
 		};
+		5E7A7A94198C7A570039F2C9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5E7A7A95198C7A570039F2C9 /* 37x-Checkmark.png */,
+				5E7A7A96198C7A570039F2C9 /* 37x-Checkmark@2x.png */,
+				5E7A7A97198C7A570039F2C9 /* Default-568h@2x.png */,
+				5E7A7A98198C7A570039F2C9 /* Default-iOS7-568h@2x.png */,
+				5E7A7A99198C7A570039F2C9 /* Default-iOS7@2x.png */,
+				5E7A7A9A198C7A570039F2C9 /* Default.png */,
+				5E7A7A9B198C7A570039F2C9 /* Default@2x.png */,
+				5E7A7A9C198C7A570039F2C9 /* Icon-iOS7@2x.png */,
+				5E7A7A9D198C7A570039F2C9 /* Icon-Small.png */,
+				5E7A7A9E198C7A570039F2C9 /* Icon-Small@2x.png */,
+				5E7A7A9F198C7A570039F2C9 /* Icon.png */,
+				5E7A7AA0198C7A570039F2C9 /* Icon@2x.png */,
+			);
+			name = Images;
+			path = "../../../../Desktop/MBProgressHUD-master/Demo/Images";
+			sourceTree = "<group>";
+		};
 		5ED0AD57191FABCA0026DFF9 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +259,10 @@
 		5ED0AD69191FABCB0026DFF9 /* AppTreinos */ = {
 			isa = PBXGroup;
 			children = (
+				5E7A7AAD198C7AC00039F2C9 /* MBProgressHUD-Prefix.pch */,
+				5E7A7AAE198C7AC00039F2C9 /* MBProgressHUD.h */,
+				5E7A7AAF198C7AC00039F2C9 /* MBProgressHUD.m */,
+				5E7A7A94198C7A570039F2C9 /* Images */,
 				5E3733E519579E3B0052DAB5 /* Alert.h */,
 				5E3733E619579E3B0052DAB5 /* Alert.m */,
 				5E09ED8D19218998003089BA /* SCSQLite-master */,
@@ -394,16 +446,28 @@
 				5ED0AD6E191FABCB0026DFF9 /* InfoPlist.strings in Resources */,
 				5E8A0709195D5C6A00FAC3EA /* icon_running@2x.png in Resources */,
 				5EABDEA1195D78A200B80ED7 /* Images-2.xcassets in Resources */,
+				5E7A7AA6198C7A570039F2C9 /* Default.png in Resources */,
 				5EFD0E9D194FBFAA0097D9A4 /* 391725_256704111119106_250911794_n.jpg in Resources */,
 				5E8A070B195D5CD000FAC3EA /* Chart_Up@2x.png in Resources */,
 				5E09ED9119218B54003089BA /* README.markdown in Resources */,
+				5E7A7AA9198C7A570039F2C9 /* Icon-Small.png in Resources */,
 				5EFC2E19195A525600B747FB /* treinoss.db in Resources */,
+				5E7A7AAC198C7A570039F2C9 /* Icon@2x.png in Resources */,
 				5E8A0707195D5ABD00FAC3EA /* Contact@2x.png in Resources */,
 				5E3733D919565FE70052DAB5 /* icon-comment-lanch.png in Resources */,
 				5ED0AD77191FABCB0026DFF9 /* Main.storyboard in Resources */,
+				5E7A7AA4198C7A570039F2C9 /* Default-iOS7-568h@2x.png in Resources */,
+				5E7A7AA8198C7A570039F2C9 /* Icon-iOS7@2x.png in Resources */,
+				5E7A7AA5198C7A570039F2C9 /* Default-iOS7@2x.png in Resources */,
+				5E7A7AA3198C7A570039F2C9 /* Default-568h@2x.png in Resources */,
 				5E3733DB19565FE70052DAB5 /* icon-not-lanch.png in Resources */,
+				5E7A7AA7198C7A570039F2C9 /* Default@2x.png in Resources */,
+				5E7A7AA2198C7A570039F2C9 /* 37x-Checkmark@2x.png in Resources */,
+				5E7A7AAB198C7A570039F2C9 /* Icon.png in Resources */,
+				5E7A7AA1198C7A570039F2C9 /* 37x-Checkmark.png in Resources */,
 				5EFD0E9F194FC0D40097D9A4 /* logo_mft.png in Resources */,
 				5E8A0701195D54A800FAC3EA /* dashboard_icon 2.png in Resources */,
+				5E7A7AAA198C7A570039F2C9 /* Icon-Small@2x.png in Resources */,
 				5E3733DA19565FE70052DAB5 /* icon-done-lanch.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +494,7 @@
 				5ED0ADBB191FC04D0026DFF9 /* SBJsonTokeniser.m in Sources */,
 				5E3FFFAF19439A1A004E6E54 /* TreinoViewController.m in Sources */,
 				5E0BD9EA194DE83100179E54 /* UsuarioViewController.m in Sources */,
+				5E7A7AB0198C7AC00039F2C9 /* MBProgressHUD.m in Sources */,
 				5ED0ADB2191FC04D0026DFF9 /* NSObject+SBJson.m in Sources */,
 				5ED0ADB8191FC04D0026DFF9 /* SBJsonStreamWriter.m in Sources */,
 				5ED0ADB4191FC04D0026DFF9 /* SBJsonStreamParser.m in Sources */,

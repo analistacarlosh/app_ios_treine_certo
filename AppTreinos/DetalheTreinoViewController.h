@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+@class MBProgressHUD;
 
 @interface DetalheTreinoViewController : UIViewController <UIAlertViewDelegate> {
     IBOutlet UIScrollView *scroller;
     UIAlertView *alert;
+    MBProgressHUD *HUD;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *treino_nome;
@@ -28,5 +31,7 @@
 
 - (IBAction)startSpinning:(UIButton *)sender;
 - (IBAction)stopSpinning:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *ActivityIndicator;
 
 @end
