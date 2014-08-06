@@ -38,6 +38,8 @@ treino_observacao:(NSString *)treino_observacao
 km_treino:(NSString *)km_treino
 tempo_treino:(NSString *)tempo_treino;
 
+-(BOOL)updateStatusUpdateWebservice;
+
 - (NSArray *)getTraining:(NSString *)id_treino;
 
 - (NSArray *)getTrainingWhere:(NSString *)where;

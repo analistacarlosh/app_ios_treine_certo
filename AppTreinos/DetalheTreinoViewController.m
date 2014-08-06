@@ -111,11 +111,17 @@
     }
 
     // sendDataCheckTraining
-    // BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
-    
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
-    [HUD showWhileExecuting:@selector(sendDataCheckTraining) onTarget:self withObject:nil animated:YES];
+    
+	[HUD showAnimated:YES whileExecutingBlock:^{
+		BOOL returnSendDataCheckTraining = [self sendDataCheckTraining];
+        if(returnSendDataCheckTraining == true){
+            [treino updateStatusUpdateWebservice];
+        }
+	} completionBlock:^{
+		[HUD removeFromSuperview];
+	}];
     
 }
 
@@ -136,11 +142,17 @@
     }
     
     // sendDataCheckTraining
-    // BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
-    
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
-    [HUD showWhileExecuting:@selector(sendDataCheckTraining) onTarget:self withObject:nil animated:YES];
+    
+	[HUD showAnimated:YES whileExecutingBlock:^{
+		BOOL returnSendDataCheckTraining = [self sendDataCheckTraining];
+        if(returnSendDataCheckTraining == true){
+            [treino updateStatusUpdateWebservice];
+        }
+	} completionBlock:^{
+		[HUD removeFromSuperview];
+	}];
 }
 
 - (IBAction)btn_training_not:(id)sender {
@@ -155,8 +167,8 @@
     
     NSLog(@"return updateStatusTraining %d", isUpdate);
     
-    // NSArray *datatraining = [treino getTraining:(_id_treino.text)];
-    // NSLog(@"datatraining: %@", datatraining);
+     NSArray *datatraining = [treino getTraining:(_id_treino.text)];
+     NSLog(@"datatraining: %@", datatraining);
     
     if(isUpdate == TRUE){
         [self alertStatus:@"Sua observação do treino foi salva com sucesso!" :@"Treino"];
@@ -164,20 +176,17 @@
     }
     
     // sendDataCheckTraining
-    //BOOL returnsendDataCheckTraining = [self sendDataCheckTraining];
-    
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
-//    [HUD showWhileExecuting:@selector(sendDataCheckTraining) onTarget:self withObject:nil animated:YES];
     
 	[HUD showAnimated:YES whileExecutingBlock:^{
-		[self sendDataCheckTraining];
+		BOOL returnSendDataCheckTraining = [self sendDataCheckTraining];
+        if(returnSendDataCheckTraining == true){
+            [treino updateStatusUpdateWebservice];
+        }
 	} completionBlock:^{
 		[HUD removeFromSuperview];
-		//[HUD release];
 	}];
-    
-    
 }
 
 - (BOOL) sendDataCheckTraining
@@ -188,6 +197,7 @@
 
     NSArray *dataUser       = [usuario getUser];
     NSString *token         = [[dataUser objectAtIndex:0] objectForKey:@"token"];
+    BOOL returnd            = false;
     
     BOOL returnConnectedToInternet = [webservice connectedToInternet];
     
@@ -195,21 +205,22 @@
     
         // Consultar todas os treinos para enviar ao server
         SBJsonWriter *writer            = [[SBJsonWriter alloc] init];
-        NSArray *dataTrainingCheck      = [treino getTrainingWhere:(@" t.status_update_webservice = 1")];
+        NSArray *dataTrainingCheck      = [treino getTrainingWhere:(@" t.status_update_webservice = 0")];
         NSString *stringDataTraining    = [writer stringWithObject:dataTrainingCheck];
         NSString *jsonDataTraining      = [NSString stringWithFormat: @"training=%@", stringDataTraining];
         
-        [NSThread sleepForTimeInterval:1.0f];
-
+        // [NSThread sleepForTimeInterval:1.0f];
+        NSLog(@"update jsonDataTraining: %@", jsonDataTraining  );
          // Enviar ao webservice
-         BOOL returnd = [webservice conectWebService:(@"update-training") parameters:(jsonDataTraining) token:(token)];
+         returnd = [webservice conectWebService:(@"update-training") parameters:(jsonDataTraining) token:(token)];
 
          // Update treinos atualizados
     } else {
         NSLog(@"sem internet");
+        return false;
     }
     
-    return true;
+    return returnd;
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {

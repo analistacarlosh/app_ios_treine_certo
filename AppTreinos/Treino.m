@@ -29,7 +29,7 @@
 
 - (NSArray *)getTrainingWhere:(NSString *)where
 {
-    self.training = [SCSQLite selectRowSQL:@"SELECT t.fk_id_treino, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, t.fk_id_exercicio, t.nome_treinamento, t.km_treino, t.tempo_treino, t.fk_id_cliente FROM tbl_treinos AS t WHERE t.status_update_webservice = 1 "];
+    self.training = [SCSQLite selectRowSQL:@"SELECT t.fk_id_treino, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, t.fk_id_exercicio, t.nome_treinamento, t.km_treino, t.tempo_treino, t.fk_id_cliente FROM tbl_treinos AS t WHERE t.status_update_webservice = 0 "];
     
     return self.training;
 }
@@ -80,16 +80,18 @@
     int pk_id_treino = [id_treino intValue];
     NSDate *data_ultimo_update = [NSDate date];
     
-    BOOL isUpdate = [SCSQLite executeSQL:@"UPDATE tbl_treinos SET treino_status = '%@', treino_observacao_alterado = '%@', data_ultimo_update = '%@', km_treino = '%@', tempo_treino = '%@',  status_update_webservice = 1 WHERE pk_id_treino = '%d'", treino_status, treino_observacao, data_ultimo_update, km_treino, tempo_treino, pk_id_treino];
+    NSLog(@"pk_id_treino: %d", pk_id_treino);
+    
+    BOOL isUpdate = [SCSQLite executeSQL:@"UPDATE tbl_treinos SET treino_status = '%@', treino_observacao_alterado = '%@', data_ultimo_update = '%@', km_treino = '%@', tempo_treino = '%@',  status_update_webservice = 0 WHERE pk_id_treino = '%d'", treino_status, treino_observacao, data_ultimo_update, km_treino, tempo_treino, pk_id_treino];
     
     return isUpdate;
 }
 
-/*-(BOOL) sendCheckTrainingForWebservice():dataTraining{
-
+-(BOOL)updateStatusUpdateWebservice {
     
+    BOOL isUpdate = [SCSQLite executeSQL:@"UPDATE tbl_treinos SET status_update_webservice = 1 WHERE status_update_webservice = 0"];
     
-    return true;
-} */
+    return isUpdate;
+}
 
 @end
