@@ -181,9 +181,7 @@
     
 	[HUD showAnimated:YES whileExecutingBlock:^{
 		BOOL returnSendDataCheckTraining = [self sendDataCheckTraining];
-        if(returnSendDataCheckTraining == true){
-            [treino updateStatusUpdateWebservice];
-        }
+        NSLog(@"return returnSendDataCheckTraining: %d", returnSendDataCheckTraining);
 	} completionBlock:^{
 		[HUD removeFromSuperview];
 	}];
@@ -197,7 +195,8 @@
 
     NSArray *dataUser       = [usuario getUser];
     NSString *token         = [[dataUser objectAtIndex:0] objectForKey:@"token"];
-    BOOL returnd            = false;
+    //NSString returnd;
+    BOOL return_update_training;
     
     BOOL returnConnectedToInternet = [webservice connectedToInternet];
     
@@ -212,15 +211,29 @@
         // [NSThread sleepForTimeInterval:1.0f];
         NSLog(@"update jsonDataTraining: %@", jsonDataTraining  );
          // Enviar ao webservice
-         returnd = [webservice conectWebService:(@"update-training") parameters:(jsonDataTraining) token:(token)];
+         NSString *returnd = [webservice conectWebService:(@"update-training") parameters:(jsonDataTraining) token:(token)];
+        
+         SBJsonParser *jsonParser = [SBJsonParser new];
+         id jsonDataupdatetraining = [jsonParser objectWithString:returnd error:nil];
 
+        // NSInteger status = [(NSNumber *) [[jsonDataupdatetraining objectAtIndex:0] objectForKey:@"status"] integerValue];
+        // NSInteger *status = [(NSNumber *) [jsonDataupdatetraining objectForKey:@"status"] integerValue];
+        // NSString *statuss = [jsonDataupdatetraining objectForKey:@"status"];
+        NSInteger *statusi = [(NSNumber *) [jsonDataupdatetraining objectForKey:@"status"] integerValue];
+
+        if(statusi == 1){
+            return_update_training = [treino updateStatusUpdateWebservice];
+            NSLog(@"returnUpdateStatusUpdateWebservice: %d", return_update_training);
+        }
+        
+        return return_update_training;
          // Update treinos atualizados
     } else {
         NSLog(@"sem internet");
         return false;
     }
     
-    return returnd;
+    return return_update_training;
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
