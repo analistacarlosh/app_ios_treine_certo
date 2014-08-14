@@ -7,14 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+@class MBProgressHUD;
 
 @interface TreinoViewController : UIViewController
 {
    NSArray *results;
+   NSInteger *countExerciseincluir;
+   NSInteger *countExerciseatualizar;
+    
+   MBProgressHUD *HUD;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableviewtreinos;
 @property (strong, nonatomic) NSMutableArray *data;
-- (IBAction)update_training:(id)sender;
+
+- (IBAction)btnUpdateTraining:(id)sender;
 
 @end
