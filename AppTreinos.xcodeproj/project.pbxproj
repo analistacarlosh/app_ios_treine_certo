@@ -11,6 +11,7 @@
 		5E09ED9119218B54003089BA /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 5E09ED8E19218B54003089BA /* README.markdown */; };
 		5E09ED9219218B54003089BA /* SCSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E09ED9019218B54003089BA /* SCSQLite.m */; };
 		5E0BD9EA194DE83100179E54 /* UsuarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BD9E9194DE83100179E54 /* UsuarioViewController.m */; };
+		5E17F8D019A4A547007E046D /* UIFormattedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E17F8CF19A4A547007E046D /* UIFormattedTextField.m */; };
 		5E1F902319230BF4006770C2 /* DetalheTreinoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F902219230BF4006770C2 /* DetalheTreinoViewController.m */; };
 		5E20880D19292C0D0004ABA1 /* Treino.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20880C19292C0D0004ABA1 /* Treino.m */; };
 		5E20881019292C1F0004ABA1 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20880F19292C1F0004ABA1 /* Usuario.m */; };
@@ -86,6 +87,8 @@
 		5E09ED9019218B54003089BA /* SCSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSQLite.m; path = "../../../../Desktop/SCSQLite-master/SCSQLite.m"; sourceTree = "<group>"; };
 		5E0BD9E8194DE83100179E54 /* UsuarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsuarioViewController.h; sourceTree = "<group>"; };
 		5E0BD9E9194DE83100179E54 /* UsuarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsuarioViewController.m; sourceTree = "<group>"; };
+		5E17F8CE19A4A547007E046D /* UIFormattedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIFormattedTextField.h; path = "../../../../Desktop/FormattedTextFieldDemo-master/FormattedTextFieldDemo-master/UIFormattedTextField/UIFormattedTextField.h"; sourceTree = "<group>"; };
+		5E17F8CF19A4A547007E046D /* UIFormattedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIFormattedTextField.m; path = "../../../../Desktop/FormattedTextFieldDemo-master/FormattedTextFieldDemo-master/UIFormattedTextField/UIFormattedTextField.m"; sourceTree = "<group>"; };
 		5E1F902119230BF4006770C2 /* DetalheTreinoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalheTreinoViewController.h; sourceTree = "<group>"; };
 		5E1F902219230BF4006770C2 /* DetalheTreinoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalheTreinoViewController.m; sourceTree = "<group>"; };
 		5E20880B19292C0D0004ABA1 /* Treino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treino.h; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 		5ED0AD69191FABCB0026DFF9 /* AppTreinos */ = {
 			isa = PBXGroup;
 			children = (
+				5E17F8CE19A4A547007E046D /* UIFormattedTextField.h */,
+				5E17F8CF19A4A547007E046D /* UIFormattedTextField.m */,
 				5E7A7AAD198C7AC00039F2C9 /* MBProgressHUD-Prefix.pch */,
 				5E7A7AAE198C7AC00039F2C9 /* MBProgressHUD.h */,
 				5E7A7AAF198C7AC00039F2C9 /* MBProgressHUD.m */,
@@ -492,6 +497,7 @@
 				5ED0ADBD191FC04D0026DFF9 /* SBJsonWriter.m in Sources */,
 				5ED0AD70191FABCB0026DFF9 /* main.m in Sources */,
 				5ED0ADBB191FC04D0026DFF9 /* SBJsonTokeniser.m in Sources */,
+				5E17F8D019A4A547007E046D /* UIFormattedTextField.m in Sources */,
 				5E3FFFAF19439A1A004E6E54 /* TreinoViewController.m in Sources */,
 				5E0BD9EA194DE83100179E54 /* UsuarioViewController.m in Sources */,
 				5E7A7AB0198C7AC00039F2C9 /* MBProgressHUD.m in Sources */,

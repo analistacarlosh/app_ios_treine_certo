@@ -29,7 +29,7 @@
 
 - (NSArray *)getTrainingWhere:(NSString *)where
 {
-    self.training = [SCSQLite selectRowSQL:@"SELECT t.fk_id_treino, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, t.fk_id_exercicio, t.nome_treinamento, t.km_treino, t.tempo_treino, t.fk_id_cliente FROM tbl_treinos AS t WHERE t.status_update_webservice = 1 "];
+    self.training = [SCSQLite selectRowSQL:@"SELECT t.fk_id_treino, t.treino_status, t.treino_observacao_alterado, data_ultimo_update, data_ultimo_update_webservice, status_update_webservice, t.fk_id_exercicio, t.nome_treinamento, t.km_treino, t.tempo_treino, t.fk_id_cliente FROM tbl_treinos AS t WHERE t.status_update_webservice = 0 "];
     
     return self.training;
 }

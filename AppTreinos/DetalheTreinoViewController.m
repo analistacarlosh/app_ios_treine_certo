@@ -68,6 +68,16 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Setando a mascara no campo de tempo
+    self.tempo_treino.delegate      = self;
+    self.tempo_treino.type          = @"Time";
+    self.tempo_treino.formatPattern = @"xx:xx:xx";
+    
+    // Setando a mascara no campo de tempo
+    self.km_treino.delegate      = self;
+    self.km_treino.type          = @"Dynamic";
+    self.km_treino.formatPattern = @"xxxxx";
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -208,6 +218,9 @@
         NSString *stringDataTraining    = [writer stringWithObject:dataTrainingCheck];
         NSString *jsonDataTraining      = [NSString stringWithFormat: @"training=%@", stringDataTraining];
         
+        // showTraining
+        [treino showTraining];
+        
         // [NSThread sleepForTimeInterval:1.0f];
         NSLog(@"update jsonDataTraining: %@", jsonDataTraining  );
          // Enviar ao webservice
@@ -274,6 +287,11 @@
         [alert dismissWithClickedButtonIndex:0 animated:YES];
         alert = nil;
     // [self performSelector:@selector(showBadNews:) withObject:error afterDelay:0.1];
+}
+
+-(BOOL)textField:(UIFormattedTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return [textField shouldChangeCharactersInRange:range replacementString:string];
 }
 
 @end

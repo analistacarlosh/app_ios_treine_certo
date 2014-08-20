@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
+#import "UIFormattedTextField.h"
+
 @class MBProgressHUD;
 
-@interface DetalheTreinoViewController : UIViewController <UIAlertViewDelegate> {
+@interface DetalheTreinoViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate> {
     IBOutlet UIScrollView *scroller;
     UIAlertView *alert;
     MBProgressHUD *HUD;
@@ -26,8 +28,8 @@
 - (IBAction)btn_training_not:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *id_treino;
 - (IBAction)backgroundTab_detalhe_treino:(id)sender;
-@property (strong, nonatomic) IBOutlet UITextField *km_treino;
-@property (strong, nonatomic) IBOutlet UITextField *tempo_treino;
+@property (strong, nonatomic) IBOutlet UIFormattedTextField *km_treino;
+@property (strong, nonatomic) IBOutlet UIFormattedTextField *tempo_treino;
 
 - (IBAction)startSpinning:(UIButton *)sender;
 - (IBAction)stopSpinning:(UIButton *)sender;
