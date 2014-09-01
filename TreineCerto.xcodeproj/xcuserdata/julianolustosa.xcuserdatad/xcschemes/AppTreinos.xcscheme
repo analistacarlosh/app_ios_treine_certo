@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5ED0AD5F191FABCB0026DFF9"
-               BuildableName = "AppTreinos.app"
-               BlueprintName = "AppTreinos"
-               ReferencedContainer = "container:AppTreinos.xcodeproj">
+               BuildableName = "Treine Certo.app"
+               BlueprintName = "Treine Certo"
+               ReferencedContainer = "container:TreineCerto.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5ED0AD80191FABCB0026DFF9"
-               BuildableName = "AppTreinosTests.xctest"
-               BlueprintName = "AppTreinosTests"
-               ReferencedContainer = "container:AppTreinos.xcodeproj">
+               BuildableName = "TreineCertoTests.xctest"
+               BlueprintName = "TreineCertoTests"
+               ReferencedContainer = "container:TreineCerto.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5ED0AD5F191FABCB0026DFF9"
-            BuildableName = "AppTreinos.app"
-            BlueprintName = "AppTreinos"
-            ReferencedContainer = "container:AppTreinos.xcodeproj">
+            BuildableName = "Treine Certo.app"
+            BlueprintName = "Treine Certo"
+            ReferencedContainer = "container:TreineCerto.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5ED0AD5F191FABCB0026DFF9"
-            BuildableName = "AppTreinos.app"
-            BlueprintName = "AppTreinos"
-            ReferencedContainer = "container:AppTreinos.xcodeproj">
+            BuildableName = "Treine Certo.app"
+            BlueprintName = "Treine Certo"
+            ReferencedContainer = "container:TreineCerto.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5ED0AD5F191FABCB0026DFF9"
-            BuildableName = "AppTreinos.app"
-            BlueprintName = "AppTreinos"
-            ReferencedContainer = "container:AppTreinos.xcodeproj">
+            BuildableName = "Treine Certo.app"
+            BlueprintName = "Treine Certo"
+            ReferencedContainer = "container:TreineCerto.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
