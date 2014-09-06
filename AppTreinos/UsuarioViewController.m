@@ -140,9 +140,24 @@
     bool returnUpateUser = [user updateDataUser:_txt_nome_usuario.text txt_data_nascimento:_txt_data_nascimento.text txt_altura_usuario:_txt_altura_usuario.text txt_peso_usuario:_txt_peso_usuario.text txt_sexo_usuario:_txt_sexo_usuario.text txt_telefone_usuario:_txt_telefone_usuario.text token:token];
 
     NSLog(@"returnUpateUser: %d", returnUpateUser);
-    [user showUsers];
+    // [user showUsers];
     
-   // [self sendDataUserForWebService];
+    // [self sendDataUserForWebService];
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    
+    if(returnUpateUser == true){
+        [HUD showAnimated:YES whileExecutingBlock:^{
+        
+            [self sendDataUserForWebService];
+        
+        } completionBlock:^{
+            [HUD removeFromSuperview];
+        }];
+    }
+    
+    [self alertStatus:@"Seus dados pessoais foram salvos com sucesso!" :@"Dados do Atleta"];
 }
 
 - (BOOL) sendDataUserForWebService
@@ -193,5 +208,15 @@
 
 - (IBAction)backgroundTab:(id)sender {
     [self.view endEditing:YES];
+}
+
+- (void) alertStatus:(NSString *)msg :(NSString *)title
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
 }
 @end
