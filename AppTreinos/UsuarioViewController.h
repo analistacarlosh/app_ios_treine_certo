@@ -7,8 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+#import "UIFormattedTextField.h"
 
-@interface UsuarioViewController : UIViewController
+@class MBProgressHUD;
+
+@interface UsuarioViewController : UIViewController {
+    MBProgressHUD *HUD;
+}
+
 - (IBAction)logout_user:(id)sender;
+- (IBAction)btnSalveDataUser:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *txt_nome_usuario;
+@property (weak, nonatomic) IBOutlet UITextField *txt_data_nascimento;
+@property (weak, nonatomic) IBOutlet UITextField *txt_peso_usuario;
+@property (weak, nonatomic) IBOutlet UITextField *txt_altura_usuario;
+@property (weak, nonatomic) IBOutlet UITextField *txt_sexo_usuario;
+@property (weak, nonatomic) IBOutlet UITextField *txt_telefone_usuario;
+@property (weak, nonatomic) IBOutlet UITextField *txt_email_usuario;
+- (IBAction)backgroundTab:(id)sender;
 
 @end

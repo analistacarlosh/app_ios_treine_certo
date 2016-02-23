@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>075E1C43-AAAB-4F20-BB3E-EDA53139B492</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TreineCerto</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>352B471A-76EA-465A-ABF5-CF97E00EE6EC</key>
+		<string>https://bitbucket.org/analistacarlosh/app-treinos-ios.git</string>
+		<key>EAF38618-5461-4DA0-939D-ECA44727F346</key>
+		<string>https://bitbucket.org/analistacarlosh/app-treinos-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TreineCerto.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>352B471A-76EA-465A-ABF5-CF97E00EE6EC</key>
+		<string>../../AppTreinos/Images.xcassets</string>
+		<key>EAF38618-5461-4DA0-939D-ECA44727F346</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/analistacarlosh/app-treinos-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EAF38618-5461-4DA0-939D-ECA44727F346</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EAF38618-5461-4DA0-939D-ECA44727F346</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AppTreinos</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>352B471A-76EA-465A-ABF5-CF97E00EE6EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Images.xcassets</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AppTreinos.xcodeproj">
+      location = "self:TreineCerto.xcodeproj">
    </FileRef>
 </Workspace>

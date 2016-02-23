@@ -20,6 +20,7 @@
 -(NSString *) getUrlBaseWebService
 {
     return urlBaseWebService = @"http://www.appsaude.net/admin/rest/";
+    // return urlBaseWebService = @"http://www.appsaude.net/admin/rest/";
 }
 
 -(NSString*) conectWebService:(NSString*)urlwebservice parameters:(NSString *)parameters token:(NSString *)token

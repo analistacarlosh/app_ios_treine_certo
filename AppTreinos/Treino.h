@@ -32,14 +32,28 @@
       km_treino:(NSString *)km_treino
       tempo_treino:(NSString *)tempo_treino;
 
+- (BOOL)updateTraining:(NSDate *)data_do_treino
+hora_inicial_do_treino:(NSString *)hora_inicial_do_treino
+     fk_tipo_de_treino:(NSString *)fk_tipo_de_treino
+          fk_id_treino:(NSString *)fk_id_treino
+         dia_da_semana:(NSString *)dia_da_semana
+                  nome:(NSString *)nome_tipo_exercicio
+             descricao:(NSString *)descricao_exercicio
+       fk_id_exercicio:(NSString *)fk_id_exercicio
+      nome_treinamento:(NSString *)nome_treinamento;
+
 - (BOOL)updateStatusTraining:(NSString *)id_treino
 treino_status:(NSString *)treino_status
 treino_observacao:(NSString *)treino_observacao
 km_treino:(NSString *)km_treino
 tempo_treino:(NSString *)tempo_treino;
 
+-(BOOL)updateStatusUpdateWebservice;
+
 - (NSArray *)getTraining:(NSString *)id_treino;
 
 - (NSArray *)getTrainingWhere:(NSString *)where;
+
+-(NSArray *) getTrainingDefault;
 
 @end

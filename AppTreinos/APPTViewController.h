@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+@class MBProgressHUD;
 
-@interface APPTViewController : UIViewController <UITextFieldDelegate>
+@interface APPTViewController : UIViewController <UITextFieldDelegate> {
+    MBProgressHUD *HUD;
+    // returnLoginUser
+    //returnImportTraining
+    BOOL returnLoginUser;
+    BOOL returnImportTraining;
+}
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtSenha;
 - (IBAction)btnEntrar:(id)sender;
